@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorPrimaryDark">#ff9e1f</color>
     <color name="colorAccent">#D81B60</color>
     <color name="treeGreen">#6eff7d</color>
     <color name="settingsGrey">#c2c0c0</color>
@@ -9,4 +9,8 @@
     <color name="questionBlue">#66dcfa</color>
     <color name="statsRed">#ff6e6e</color>
     <color name="chatPurple">#e169ff</color>
+    <color name="greyOne">#1a025c</color>
+    <color name="greyTwo">#1a025c</color>
+    <color name="greyThree">#1a025c</color>
+    <color name="white">#ffffff</color>
 </resources>

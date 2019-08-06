@@ -28,7 +28,7 @@ public class util  {
         bmb.addBuilder(new SimpleCircleButton.Builder().normalImageRes(R.drawable.farm_icon).normalColorRes(R.color.farmYellow).listener(new OnBMClickListener() {
             @Override
             public void onBoomButtonClick(int index) {
-                Intent menuIntent = new Intent(MainActivity.getAppContext().getApplicationContext(), SettingsActivity.class);
+                Intent menuIntent = new Intent(MainActivity.getAppContext().getApplicationContext(), MyFarm.class);
                 menuIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 MainActivity.getAppContext().getApplicationContext().startActivity(menuIntent);
             }

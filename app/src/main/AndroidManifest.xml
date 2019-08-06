@@ -9,18 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PlantsActivity"></activity>
+        <activity android:name=".ChangeInformationActivity"></activity>
+        <activity android:name=".MyFarm" />
+        <activity android:name=".PlantsActivity" />
         <activity android:name=".SettingsActivity" />
         <activity android:name=".LogInActivity">
             <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
-
-        </activity>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>
