@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#2FFF62"
+    android:background="@color/background"
     android:clickable="true"
     tools:context=".MyFarm">
 
@@ -18,15 +18,26 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
-        android:id="@+id/myInformationButton"
-        android:layout_width="200dp"
-        android:layout_height="71dp"
+        android:id="@+id/saveButton"
+        android:layout_width="155dp"
+        android:layout_height="70dp"
         android:layout_marginStart="8dp"
         android:layout_marginBottom="8dp"
         android:layout_weight="1"
         android:text="Save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/cancelButton"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_weight="1"
+        android:text="Cancel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/saveButton" />
 
     <TextView
         android:id="@+id/textView2"
@@ -35,10 +46,12 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
-        android:background="@drawable/round"
+        android:layout_marginBottom="8dp"
+        android:background="@color/heading"
         android:text="My Information"
         android:textAlignment="center"
         android:textSize="44sp"
+        app:layout_constraintBottom_toTopOf="@+id/scroll_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,9 +62,12 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_gravity="center"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:background="#C1E6FF"
-        app:layout_constraintBottom_toTopOf="@+id/myInformationButton"
+        app:layout_constraintBottom_toTopOf="@+id/saveButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -67,197 +83,384 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
-                android:background="@drawable/round">
-
-                <EditText
-                    android:id="@+id/micronutrients_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:text="TextView"
-                    android:textAlignment="viewStart" />
-            </FrameLayout>
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="10dp"
-                android:background="@drawable/round">
+                android:background="@color/textWhite">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal">
+                    android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/textView"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/farmNameHeading"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:layout_margin="5dp"
                         android:layout_weight="1"
                         android:text="Farm  name"
                         android:textAlignment="center"
                         android:textSize="18sp" />
 
                     <EditText
-                        android:id="@+id/provinces_view"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:id="@+id/provinces_view15"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:layout_margin="10dp"
                         android:layout_weight="2"
                         android:text="TextView"
                         android:textAlignment="viewStart" />
                 </LinearLayout>
-
             </FrameLayout>
 
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
-                android:background="@drawable/round">
+                android:background="@color/textWhite">
 
-                <TextView
-                    android:id="@+id/nitrogen_view"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:text="TextView"
-                    android:textAlignment="viewStart" />
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/farmNameHeading36"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:text="Farm  name"
+                        android:textAlignment="center"
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/provinces_view37"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        android:textAlignment="viewStart" />
+                </LinearLayout>
             </FrameLayout>
 
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
-                android:background="@drawable/round">
+                android:background="@color/textWhite">
 
-                <TextView
-                    android:id="@+id/divisions_view"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:text="TextView"
-                    android:textAlignment="viewStart" />
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/farmNameHeading35"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:text="Farm  name"
+                        android:textAlignment="center"
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/provinces_view36"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        android:textAlignment="viewStart" />
+                </LinearLayout>
             </FrameLayout>
 
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
-                android:background="@drawable/round">
+                android:background="@color/textWhite">
 
-                <TextView
-                    android:id="@+id/potassium_view"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:text="TextView"
-                    android:textAlignment="viewStart" />
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/farmNameHeading34"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:text="Farm  name"
+                        android:textAlignment="center"
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/provinces_view35"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        android:textAlignment="viewStart" />
+                </LinearLayout>
             </FrameLayout>
 
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
-                android:background="@drawable/round">
+                android:background="@color/textWhite">
 
-                <TextView
-                    android:id="@+id/extent_view"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:text="TextView"
-                    android:textAlignment="viewStart" />
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/farmNameHeading33"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:text="Farm  name"
+                        android:textAlignment="center"
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/provinces_view34"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        android:textAlignment="viewStart" />
+                </LinearLayout>
             </FrameLayout>
 
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
-                android:background="@drawable/round">
+                android:background="@color/textWhite">
 
-                <TextView
-                    android:id="@+id/ph_view"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:text="TextView"
-                    android:textAlignment="viewStart" />
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/farmNameHeading32"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:text="Farm  name"
+                        android:textAlignment="center"
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/provinces_view33"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        android:textAlignment="viewStart" />
+                </LinearLayout>
             </FrameLayout>
 
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
-                android:background="@drawable/round">
+                android:background="@color/textWhite">
 
-                <TextView
-                    android:id="@+id/watersource_view"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:text="TextView"
-                    android:textAlignment="viewStart" />
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/farmNameHeading31"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:text="Farm  name"
+                        android:textAlignment="center"
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/provinces_view32"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        android:textAlignment="viewStart" />
+                </LinearLayout>
             </FrameLayout>
 
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
-                android:background="@drawable/round">
+                android:background="@color/textWhite">
 
-                <TextView
-                    android:id="@+id/phosphorous_view"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:text="TextView"
-                    android:textAlignment="viewStart" />
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/farmNameHeading30"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:text="Farm  name"
+                        android:textAlignment="center"
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/provinces_view31"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        android:textAlignment="viewStart" />
+                </LinearLayout>
             </FrameLayout>
 
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
-                android:background="@drawable/round">
+                android:background="@color/textWhite">
 
-                <TextView
-                    android:id="@+id/carbon_view"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:text="TextView"
-                    android:textAlignment="viewStart" />
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/farmNameHeading29"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:text="Farm  name"
+                        android:textAlignment="center"
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/provinces_view30"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        android:textAlignment="viewStart" />
+                </LinearLayout>
             </FrameLayout>
 
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
-                android:background="@drawable/round">
+                android:background="@color/textWhite">
 
-                <TextView
-                    android:id="@+id/soiltest_view"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:text="TextView"
-                    android:textAlignment="viewStart" />
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/farmNameHeading28"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:text="Farm  name"
+                        android:textAlignment="center"
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/provinces_view29"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        android:textAlignment="viewStart" />
+                </LinearLayout>
             </FrameLayout>
 
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
-                android:background="@drawable/round">
+                android:background="@color/textWhite">
 
-                <TextView
-                    android:id="@+id/agrozone_view"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:text="TextView"
-                    android:textAlignment="viewStart" />
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/farmNameHeading27"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:text="Farm  name"
+                        android:textAlignment="center"
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/provinces_view28"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        android:textAlignment="viewStart" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:background="@color/textWhite">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/farmNameHeading26"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:text="Farm  name"
+                        android:textAlignment="center"
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/provinces_view27"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        android:textAlignment="viewStart" />
+                </LinearLayout>
             </FrameLayout>
 
         </LinearLayout>

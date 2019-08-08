@@ -1,11 +1,12 @@
 package com.csit321.farmeddversion2;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
-import com.diegodobelo.expandingview.ExpandingItem;
 import com.diegodobelo.expandingview.ExpandingList;
 import com.nightonke.boommenu.BoomMenuButton;
 
@@ -13,6 +14,7 @@ public class MyFarm extends AppCompatActivity {
 
     BoomMenuButton bmb;
     ExpandingList expandingList;
+    Button myInformationButton;
     TextView farmNameView;
     TextView provincesView;
     TextView divisionsView;
@@ -69,6 +71,21 @@ public class MyFarm extends AppCompatActivity {
 
         bmb = findViewById(R.id.bmb);
         bmb = util.createBMBMenu(bmb);
+
+        myInformationButton = findViewById(R.id.myInformationButton);
+        myInformationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                changeViewEditInformation();
+            }
+        });
+    }
+
+    private void changeViewEditInformation() {
+        Intent menuIntent = new Intent(this, ChangeInformationActivity.class);
+        menuIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        this.startActivity(menuIntent);
+        overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
     }
 
 }

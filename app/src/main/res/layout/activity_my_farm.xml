@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#2FFF62"
+    android:background="@color/background"
     android:clickable="true"
     tools:context=".MyFarm">
 
@@ -24,7 +24,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginBottom="8dp"
         android:layout_weight="1"
-        android:background="@drawable/round"
+        android:background="@color/heading"
         android:text="My Information"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -38,9 +38,10 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
         android:layout_weight="1"
-        android:background="@drawable/round"
+        android:background="@color/heading"
         android:text="Farm Name"
         android:textAlignment="center"
+        android:textColor="@color/textWhite"
         android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/scroll_view"
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,9 +56,10 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
-        android:background="@drawable/round"
+        android:background="@color/heading"
         android:text="My Farm"
         android:textAlignment="center"
+        android:textColor="@color/textWhite"
         android:textSize="44sp"
         app:layout_constraintBottom_toTopOf="@+id/farm_name_view"
         app:layout_constraintEnd_toEndOf="parent"
@@ -70,7 +72,9 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_gravity="center"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:background="#C1E6FF"
         app:layout_constraintBottom_toTopOf="@+id/myInformationButton"
@@ -89,22 +93,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
-                android:background="@drawable/round">
-
-                <TextView
-                    android:id="@+id/micronutrients_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:text="TextView"
-                    android:textAlignment="viewStart" />
-            </FrameLayout>
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="10dp"
-                android:background="@drawable/round">
+                android:background="@color/textWhite">
 
                 <TextView
                     android:id="@+id/provinces_view"
@@ -120,22 +109,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
-                android:background="@drawable/round">
-
-                <TextView
-                    android:id="@+id/nitrogen_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:text="TextView"
-                    android:textAlignment="viewStart" />
-            </FrameLayout>
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="10dp"
-                android:background="@drawable/round">
+                android:background="@color/textWhite">
 
                 <TextView
                     android:id="@+id/divisions_view"
@@ -150,22 +124,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
-                android:background="@drawable/round">
-
-                <TextView
-                    android:id="@+id/potassium_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:text="TextView"
-                    android:textAlignment="viewStart" />
-            </FrameLayout>
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="10dp"
-                android:background="@drawable/round">
+                android:background="@color/textWhite">
 
                 <TextView
                     android:id="@+id/extent_view"
@@ -180,10 +139,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
-                android:background="@drawable/round">
+                android:background="@color/textWhite">
 
                 <TextView
-                    android:id="@+id/ph_view"
+                    android:id="@+id/nitrogen_view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
@@ -195,22 +154,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
-                android:background="@drawable/round">
-
-                <TextView
-                    android:id="@+id/watersource_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:text="TextView"
-                    android:textAlignment="viewStart" />
-            </FrameLayout>
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="10dp"
-                android:background="@drawable/round">
+                android:background="@color/textWhite">
 
                 <TextView
                     android:id="@+id/phosphorous_view"
@@ -225,7 +169,37 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
-                android:background="@drawable/round">
+                android:background="@color/textWhite">
+
+                <TextView
+                    android:id="@+id/potassium_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="TextView"
+                    android:textAlignment="viewStart" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:background="@color/textWhite">
+
+                <TextView
+                    android:id="@+id/ph_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="TextView"
+                    android:textAlignment="viewStart" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:background="@color/textWhite">
 
                 <TextView
                     android:id="@+id/carbon_view"
@@ -240,7 +214,37 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
-                android:background="@drawable/round">
+                android:background="@color/textWhite">
+
+                <TextView
+                    android:id="@+id/micronutrients_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="TextView"
+                    android:textAlignment="viewStart" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:background="@color/textWhite">
+
+                <TextView
+                    android:id="@+id/watersource_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="TextView"
+                    android:textAlignment="viewStart" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:background="@color/textWhite">
 
                 <TextView
                     android:id="@+id/soiltest_view"
@@ -255,7 +259,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
-                android:background="@drawable/round">
+                android:background="@color/textWhite">
 
                 <TextView
                     android:id="@+id/agrozone_view"

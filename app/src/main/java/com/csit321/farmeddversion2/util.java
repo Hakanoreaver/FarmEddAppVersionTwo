@@ -23,6 +23,7 @@ public class util  {
                 Intent menuIntent = new Intent(MainActivity.getAppContext().getApplicationContext(), PlantsActivity.class);
                 menuIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 MainActivity.getAppContext().getApplicationContext().startActivity(menuIntent);
+
             }
         }));
         bmb.addBuilder(new SimpleCircleButton.Builder().normalImageRes(R.drawable.farm_icon).normalColorRes(R.color.farmYellow).listener(new OnBMClickListener() {

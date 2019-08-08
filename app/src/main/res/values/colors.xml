@@ -13,4 +13,12 @@
     <color name="greyTwo">#1a025c</color>
     <color name="greyThree">#1a025c</color>
     <color name="white">#ffffff</color>
+
+    <color name="heading">#518CCE</color>
+    <color name="background">#B4CEEA</color>
+    <color name="textWhite">#FFFFFF</color>
+    <color name="textBlack">#000000</color>
+    <color name="title">#00BCD4</color>
+    <color name="actionButton">#EA80FC</color>
+
 </resources>
