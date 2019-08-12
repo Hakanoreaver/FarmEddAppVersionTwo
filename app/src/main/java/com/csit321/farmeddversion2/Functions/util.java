@@ -1,9 +1,13 @@
-package com.csit321.farmeddversion2;
+package com.csit321.farmeddversion2.Functions;
 
-import android.app.Application;
-import android.content.Context;
 import android.content.Intent;
 
+import com.csit321.farmeddversion2.Bugs.BugsActivity;
+import com.csit321.farmeddversion2.Farm.MyFarm;
+import com.csit321.farmeddversion2.MainActivity;
+import com.csit321.farmeddversion2.Plants.PlantsActivity;
+import com.csit321.farmeddversion2.R;
+import com.csit321.farmeddversion2.Utilities.SettingsActivity;
 import com.nightonke.boommenu.BoomButtons.ButtonPlaceEnum;
 import com.nightonke.boommenu.BoomButtons.OnBMClickListener;
 import com.nightonke.boommenu.BoomButtons.SimpleCircleButton;
@@ -45,7 +49,7 @@ public class util  {
         bmb.addBuilder(new SimpleCircleButton.Builder().normalImageRes(R.drawable.stats_icon).normalColorRes(R.color.statsRed).listener(new OnBMClickListener() {
             @Override
             public void onBoomButtonClick(int index) {
-                Intent menuIntent = new Intent(MainActivity.getAppContext().getApplicationContext(), SettingsActivity.class);
+                Intent menuIntent = new Intent(MainActivity.getAppContext().getApplicationContext(), BugsActivity.class);
                 menuIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 MainActivity.getAppContext().getApplicationContext().startActivity(menuIntent);
             }

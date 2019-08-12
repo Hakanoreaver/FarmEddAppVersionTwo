@@ -1,3 +1,26 @@
 <resources>
     <string name="app_name">FarmEddVersion2</string>
+    <string name="myInformationHeader">My Information</string>
+    <string name="farmName">Farm Name</string>
+    <string name="nitrogen">Nitrogen</string>
+    <string name="phosphorous">Phosphorous</string>
+    <string name="potassium">Pottasium</string>
+    <string name="province">Province</string>
+    <string name="division">Division</string>
+    <string name="extent">Extent</string>
+    <string name="carbon">Carbon</string>
+    <string name="pH">pH</string>
+    <string name="micronutrients">Micronutrients</string>
+    <string name="soilTest">Soil Test</string>
+    <string name="waterSource">Water Source</string>
+    <string name="aggrozone">Aggrozone</string>
+    <string name="animations">Animations</string>
+    <string name="plants">Plants</string>
+    <string name="bugs">Bugs</string>
+    <string name="advancedSearch">Advanced Search</string>
+    <string name="search">Search</string>
+    <string name="back">Back</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
+    <string name="between">Between</string>
 </resources>

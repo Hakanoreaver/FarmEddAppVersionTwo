@@ -11,9 +11,9 @@
             android:layout_centerVertical="true"
             android:textSize="18sp"
             android:gravity="center_vertical|left"
-            android:paddingLeft="20dp"
-            android:paddingRight="10dp"
+            android:padding="15dp"
             android:textColor="@color/white"
+
             />
 
     </ScrollView>

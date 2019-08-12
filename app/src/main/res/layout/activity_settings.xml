@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context=".SettingsActivity">
+    tools:context=".Utilities.SettingsActivity">
 
     <com.nightonke.boommenu.BoomMenuButton
         android:id="@+id/bmb"
@@ -63,7 +63,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
-                android:text="Switch" />
+                android:text="@string/animations"
+                tools:checked="true" />
 
             <Switch
                 android:id="@+id/switch9"

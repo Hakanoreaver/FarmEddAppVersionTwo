@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     android:clickable="true"
-    tools:context=".MyFarm">
+    tools:context=".Farm.MyFarm">
 
     <com.nightonke.boommenu.BoomMenuButton
         android:id="@+id/bmb"

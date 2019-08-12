@@ -1,31 +1,26 @@
-package com.csit321.farmeddversion2;
+package com.csit321.farmeddversion2.Utilities;
 
 import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
 import android.view.Window;
 
 import com.csit321.farmeddversion2.Functions.util;
+import com.csit321.farmeddversion2.R;
 import com.nightonke.boommenu.BoomMenuButton;
 
-public class MainActivity extends Activity {
+public class SettingsActivity extends Activity {
 
     BoomMenuButton bmb;
-    private static Context mContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mContext = this.getApplicationContext();
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_settings);
 
         bmb = findViewById(R.id.bmb);
         bmb = util.createBMBMenu(bmb);
-    }
 
-    public static Context getAppContext(){
-        return mContext;
     }
 
 }

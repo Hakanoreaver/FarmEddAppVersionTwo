@@ -9,11 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SignUpActivity"></activity>
-        <activity android:name=".ChangeInformationActivity" />
-        <activity android:name=".MyFarm" />
-        <activity android:name=".PlantsActivity" />
-        <activity android:name=".SettingsActivity" />
+        <activity android:name=".Plants.PlantsAdvancedSearchActivity"></activity>
+        <activity android:name=".Bugs.BugsAdvancedSearchActivity" />
+        <activity android:name=".Bugs.BugsActivity" />
+        <activity android:name=".Plants.IndividualPlantActivity" />
+        <activity android:name=".Utilities.SignUpActivity" />
+        <activity android:name=".Farm.ChangeInformationActivity" />
+        <activity android:name=".Farm.MyFarm" />
+        <activity android:name=".Plants.PlantsActivity" />
+        <activity android:name=".Utilities.SettingsActivity" />
         <activity android:name=".LogInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

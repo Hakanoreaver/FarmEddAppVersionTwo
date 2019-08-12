@@ -1,13 +1,18 @@
-package com.csit321.farmeddversion2;
+package com.csit321.farmeddversion2.Utilities;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Window;
 
-public class SignUpActivity extends AppCompatActivity {
+import com.csit321.farmeddversion2.R;
+
+public class SignUpActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_sign_up);
     }
 }

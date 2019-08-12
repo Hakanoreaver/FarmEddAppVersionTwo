@@ -1,14 +1,17 @@
-package com.csit321.farmeddversion2;
+package com.csit321.farmeddversion2.Farm;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 
+import com.csit321.farmeddversion2.R;
+import com.csit321.farmeddversion2.Functions.util;
 import com.nightonke.boommenu.BoomMenuButton;
 
-public class ChangeInformationActivity extends AppCompatActivity {
+public class ChangeInformationActivity extends Activity {
 
     BoomMenuButton bmb;
     Button saveButton;
@@ -17,6 +20,7 @@ public class ChangeInformationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_change_information);
 
         setVars();
@@ -50,13 +54,13 @@ public class ChangeInformationActivity extends AppCompatActivity {
         Intent menuIntent = new Intent(this, ChangeInformationActivity.class);
         menuIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         this.startActivity(menuIntent);
-        overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+        overridePendingTransition(R.anim.push_right_out, R.anim.push_right_in);
     }
 
     private void cancel() {
         Intent menuIntent = new Intent(this, MyFarm.class);
         menuIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         this.startActivity(menuIntent);
-        overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+        overridePendingTransition(R.anim.push_right_out, R.anim.push_right_in);
     }
 }
