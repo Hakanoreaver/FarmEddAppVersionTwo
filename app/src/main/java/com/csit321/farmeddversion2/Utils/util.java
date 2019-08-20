@@ -1,4 +1,4 @@
-package com.csit321.farmeddversion2.Functions;
+package com.csit321.farmeddversion2.Utils;
 
 import android.content.Intent;
 

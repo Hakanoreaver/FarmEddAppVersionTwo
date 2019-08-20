@@ -8,7 +8,7 @@ import android.view.Window;
 import android.widget.Button;
 
 import com.csit321.farmeddversion2.R;
-import com.csit321.farmeddversion2.Functions.util;
+import com.csit321.farmeddversion2.Utils.util;
 import com.nightonke.boommenu.BoomMenuButton;
 
 public class ChangeInformationActivity extends Activity {

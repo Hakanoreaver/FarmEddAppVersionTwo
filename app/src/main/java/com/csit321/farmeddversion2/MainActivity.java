@@ -5,7 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.Window;
 
-import com.csit321.farmeddversion2.Functions.util;
+import com.csit321.farmeddversion2.Utils.util;
 import com.nightonke.boommenu.BoomMenuButton;
 
 public class MainActivity extends Activity {

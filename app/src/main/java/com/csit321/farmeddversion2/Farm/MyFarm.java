@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.csit321.farmeddversion2.R;
-import com.csit321.farmeddversion2.Functions.util;
+import com.csit321.farmeddversion2.Utils.util;
 import com.diegodobelo.expandingview.ExpandingList;
 import com.nightonke.boommenu.BoomMenuButton;
 
