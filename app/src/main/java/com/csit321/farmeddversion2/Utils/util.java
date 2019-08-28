@@ -1,6 +1,7 @@
 package com.csit321.farmeddversion2.Utils;
 
 import android.content.Intent;
+import android.os.StrictMode;
 
 import com.csit321.farmeddversion2.Bugs.BugsActivity;
 import com.csit321.farmeddversion2.Farm.MyFarm;
@@ -14,6 +15,10 @@ import com.nightonke.boommenu.BoomButtons.SimpleCircleButton;
 import com.nightonke.boommenu.BoomMenuButton;
 import com.nightonke.boommenu.ButtonEnum;
 import com.nightonke.boommenu.Piece.PiecePlaceEnum;
+
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 public class util  {
 
@@ -71,5 +76,21 @@ public class util  {
             }
         }));
         return bmb;
+    }
+
+    public static HttpURLConnection httpFactory(String urlString, String requestType) throws IOException {
+        //Set up the connection
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+        URL url = new URL(urlString);
+        HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+        urlConnection.setDoOutput (true);
+        urlConnection.setUseCaches (false);
+        urlConnection.setRequestMethod(requestType);
+        if(requestType.equals("POST")) {
+            urlConnection.setDoInput (true);
+        }
+        urlConnection.setRequestProperty("Content-Type", "application/json");
+        return urlConnection;
     }
 }

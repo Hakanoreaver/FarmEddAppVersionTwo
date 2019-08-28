@@ -20,5 +20,7 @@
     <color name="textBlack">#000000</color>
     <color name="title">#00BCD4</color>
     <color name="actionButton">#EA80FC</color>
+    <color name="errorText">#FF0000</color>
+    <color name="successText">#27e52a</color>
 
 </resources>
