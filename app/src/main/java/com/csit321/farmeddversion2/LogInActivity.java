@@ -15,18 +15,23 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.csit321.farmeddversion2.Messaging.MessagingActivity;
+import com.csit321.farmeddversion2.Objects.User;
 import com.csit321.farmeddversion2.Utilities.SignUpActivity;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.json.JSONObject;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
 import java.net.URL;
 
 import butterknife.BindView;
@@ -183,7 +188,7 @@ public class LogInActivity extends Activity {
             writer.close();
             os.close();
 
-            urlConnection.connect();
+
 
             try {
                 InputStream in = new BufferedInputStream(urlConnection.getInputStream());
@@ -193,8 +198,7 @@ public class LogInActivity extends Activity {
                     total.append(line);
                 }
                 if(Integer.parseInt(total.toString()) > 0) {
-                    MessagingActivity.setUserID(Integer.parseInt(total.toString()));
-                    openMainPage();
+                    getUser(Integer.parseInt(total.toString()));
 
                 }
                 else {
@@ -214,6 +218,45 @@ public class LogInActivity extends Activity {
         catch (Exception e) {
             System.out.println(e);
         }
+    }
+
+    private void getUser(int userId) {
+        try {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+            URL url = new URL("https://agriculturepipeline.herokuapp.com/main/user/find/" + userId);
+            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+            urlConnection.setDoInput(true);
+            urlConnection.setDoOutput(true);
+            urlConnection.setUseCaches(false);
+            urlConnection.setRequestMethod("POST");
+            urlConnection.setRequestProperty("Content-Type", "application/json");
+            urlConnection.connect();
+
+
+            InputStream in = new BufferedInputStream(urlConnection.getInputStream());
+            BufferedReader r = new BufferedReader(new InputStreamReader(in));
+            StringBuilder total = new StringBuilder();
+            for (String line; (line = r.readLine()) != null; ) {
+                total.append(line);
+            }
+            ObjectMapper mapper = new ObjectMapper();
+            User user = mapper.readValue(total.toString(), User.class);
+            System.out.println(user.getAggrozone());
+            MainActivity.setUser(user);
+            System.out.println(MainActivity.getUser().toString());
+            openMainPage();
+
+
+        } catch (ProtocolException e) {
+            e.printStackTrace();
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
     public void openMainPage(){

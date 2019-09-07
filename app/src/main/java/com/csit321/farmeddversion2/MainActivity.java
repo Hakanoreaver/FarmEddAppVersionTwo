@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.Window;
 
+import com.csit321.farmeddversion2.Objects.User;
 import com.csit321.farmeddversion2.Utils.util;
 import com.nightonke.boommenu.BoomMenuButton;
 
@@ -12,6 +13,7 @@ public class MainActivity extends Activity {
 
     BoomMenuButton bmb;
     private static Context mContext;
+    static User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,14 @@ public class MainActivity extends Activity {
 
     public static Context getAppContext(){
         return mContext;
+    }
+
+    public static User getUser() {
+        return user;
+    }
+
+    public static void setUser(User u) {
+        user = u;
     }
 
 }

@@ -8,6 +8,8 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.csit321.farmeddversion2.MainActivity;
+import com.csit321.farmeddversion2.Objects.User;
 import com.csit321.farmeddversion2.R;
 import com.csit321.farmeddversion2.Utils.util;
 import com.diegodobelo.expandingview.ExpandingList;
@@ -43,19 +45,20 @@ public class MyFarm extends Activity {
     }
 
     private void test() {
-        farmNameView.setText("James' Ranch");
-        provincesView.setText("Provinces : Sydney");
-        divisionsView.setText("Divisions : Wollongong");
-        extentView.setText("10 km squared");
-        carbonView.setText("Carbon - 10");
-        nView.setText("Nitrogen - 10");
-        pView.setText("Phsophorous - 10");
-        kView.setText("Potassium - 10");
-        phView.setText("pH - 7");
-        micronutrientsView.setText("Micronutrient Rich");
-        soilTestView.setText("Soil Test - Yes");
-        waterSourceView.setText("Water Source - Rain, Canal, Irrigation");
-        aggrozoneView.setText("Aggrozone Score - 20");
+        User u = MainActivity.getUser();
+        farmNameView.setText(u.getFarmName());
+        provincesView.setText("Provinces : " + u.getProvince());
+        divisionsView.setText("Divisions : " + u.getDivision());
+        extentView.setText( u.getExtent() + " km squared");
+        carbonView.setText("Carbon - " + u.getC());
+        nView.setText("Nitrogen - " + u.getN());
+        pView.setText("Phsophorous - " + u.getP());
+        kView.setText("Potassium - " + u.getK());
+        phView.setText("pH - " + u.getpH());
+        micronutrientsView.setText(u.getMicronutrients());
+        soilTestView.setText("Soil Test - " + u.isSoilTest());
+        waterSourceView.setText("Water Source - " + u.getWaterSource());
+        aggrozoneView.setText("Aggrozone Score - " + u.getAggrozone());
     }
 
     private void setVars() {

@@ -100,42 +100,11 @@
                         android:textSize="18sp" />
 
                     <EditText
-                        android:id="@+id/provinces_view15"
+                        android:id="@+id/farmNameEdit"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_margin="10dp"
                         android:layout_weight="2"
-                        android:textAlignment="viewStart" />
-                </LinearLayout>
-            </FrameLayout>
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="10dp"
-                android:background="@color/textWhite">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/farmNameHeading36"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_margin="5dp"
-                        android:layout_weight="1"
-                        android:text="@string/division"
-                        android:textAlignment="center"
-                        android:textSize="18sp" />
-
-                    <EditText
-                        android:id="@+id/provinces_view37"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_margin="10dp"
-                        android:layout_weight="1"
                         android:textAlignment="viewStart" />
                 </LinearLayout>
             </FrameLayout>
@@ -162,7 +131,67 @@
                         android:textSize="18sp" />
 
                     <EditText
-                        android:id="@+id/provinces_view36"
+                        android:id="@+id/provincesEdit"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:textAlignment="viewStart" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:background="@color/textWhite">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/farmNameHeading36"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:text="@string/division"
+                        android:textAlignment="center"
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/divisionEdit"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:textAlignment="viewStart" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/extentHeading"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:text="@string/extent"
+                        android:textAlignment="center"
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/extentEdit"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_margin="10dp"
@@ -193,7 +222,7 @@
                         android:textSize="18sp" />
 
                     <EditText
-                        android:id="@+id/provinces_view35"
+                        android:id="@+id/carbonEdit"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_margin="10dp"
@@ -224,7 +253,7 @@
                         android:textSize="18sp" />
 
                     <EditText
-                        android:id="@+id/provinces_view34"
+                        android:id="@+id/nitrogenEdit"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_margin="10dp"
@@ -255,7 +284,7 @@
                         android:textSize="18sp" />
 
                     <EditText
-                        android:id="@+id/provinces_view33"
+                        android:id="@+id/phosphorousEdit"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_margin="10dp"
@@ -286,7 +315,7 @@
                         android:textSize="18sp" />
 
                     <EditText
-                        android:id="@+id/provinces_view32"
+                        android:id="@+id/potassiumEdit"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_margin="10dp"
@@ -317,7 +346,7 @@
                         android:textSize="18sp" />
 
                     <EditText
-                        android:id="@+id/provinces_view31"
+                        android:id="@+id/pHEdit"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_margin="10dp"
@@ -348,7 +377,7 @@
                         android:textSize="18sp" />
 
                     <EditText
-                        android:id="@+id/provinces_view30"
+                        android:id="@+id/micronutrientsEdit"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_margin="10dp"
@@ -379,7 +408,7 @@
                         android:textSize="18sp" />
 
                     <EditText
-                        android:id="@+id/provinces_view29"
+                        android:id="@+id/soilTestEdit"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_margin="10dp"
@@ -410,7 +439,7 @@
                         android:textSize="18sp" />
 
                     <EditText
-                        android:id="@+id/provinces_view28"
+                        android:id="@+id/waterSourceEdit"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_margin="10dp"
@@ -441,7 +470,7 @@
                         android:textSize="18sp" />
 
                     <EditText
-                        android:id="@+id/provinces_view27"
+                        android:id="@+id/aggrozoneEdit"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_margin="10dp"
