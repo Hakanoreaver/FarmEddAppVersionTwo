@@ -23,7 +23,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Messaging.RepliesActivity"></activity>
+        <activity android:name=".Messaging.RepliesActivity" />
         <activity android:name=".Messaging.MessagingActivity" />
         <activity android:name=".Messaging.MessagingTerminalActivity" />
         <activity android:name=".Plants.PlantsAdvancedSearchActivity" />
