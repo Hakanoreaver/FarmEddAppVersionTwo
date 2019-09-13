@@ -23,4 +23,8 @@
     <color name="errorText">#FF0000</color>
     <color name="successText">#27e52a</color>
 
+    <color name="good">#08F50C</color>
+    <color name="medium">#FFAB40</color>
+    <color name="bad">#DB2525</color>
+
 </resources>

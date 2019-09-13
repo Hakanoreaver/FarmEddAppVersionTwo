@@ -11,6 +11,7 @@ import com.csit321.farmeddversion2.Farm.MyFarm;
 import com.csit321.farmeddversion2.MainActivity;
 import com.csit321.farmeddversion2.Objects.PlantType;
 import com.csit321.farmeddversion2.Objects.PlantVarieties;
+import com.csit321.farmeddversion2.Objects.User;
 import com.csit321.farmeddversion2.R;
 import com.csit321.farmeddversion2.Utilities.SettingsActivity;
 import com.csit321.farmeddversion2.Utils.util;
@@ -48,6 +49,8 @@ public class PlantsActivity extends Activity {
 
 
     private void setUpItems() {
+        User u = MainActivity.getUser();
+
         for(PlantType pt : MainActivity.getPlantTypeArrayList()) {
             ExpandingItem item = expandingList.createNewItem(R.layout.expanding_layout);
             item.setIndicatorColorRes(R.color.treeGreen);
@@ -63,12 +66,19 @@ public class PlantsActivity extends Activity {
                 final View subItemZero = item.getSubItemView(i);
                 ((TextView) subItemZero.findViewById(R.id.sub_title)).setText(pvs.get(i).getVarietyName());
                 subItemZero.setId(pvs.get(i).getId());
-                subItemZero.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+                if(pvs.get(i).getpHMin() < u.getpH() && pvs.get(i).getpHMax() > u.getpH()) {
+                    subItemZero.setBackgroundColor(getResources().getColor(R.color.good));
+                }
+                else if((pvs.get(i).getpHMin() - 1) < u.getpH() && (pvs.get(i).getpHMax() + 1) > u.getpH()) {
+                    subItemZero.setBackgroundColor(getResources().getColor(R.color.medium));
+                }
+                else {
+                    subItemZero.setBackgroundColor(getResources().getColor(R.color.bad));
+                }
             }
 
             for(int i = 0; i < item.getSubItemsCount(); i++) {
                 final View view = item.getSubItemView(i);
-                view.setBackgroundColor(getResources().getColor(R.color.colorAccent));
                 view.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

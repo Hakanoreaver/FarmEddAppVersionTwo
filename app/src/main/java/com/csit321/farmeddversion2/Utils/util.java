@@ -15,6 +15,7 @@ import com.nightonke.boommenu.BoomButtons.SimpleCircleButton;
 import com.nightonke.boommenu.BoomMenuButton;
 import com.nightonke.boommenu.ButtonEnum;
 import com.nightonke.boommenu.Piece.PiecePlaceEnum;
+import android.os.Vibrator;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -73,6 +74,7 @@ public class util  {
                 Intent menuIntent = new Intent(MainActivity.getAppContext().getApplicationContext(), SettingsActivity.class);
                 menuIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 MainActivity.getAppContext().getApplicationContext().startActivity(menuIntent);
+
             }
         }));
         return bmb;

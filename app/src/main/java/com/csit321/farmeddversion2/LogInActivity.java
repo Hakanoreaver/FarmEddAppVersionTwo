@@ -2,8 +2,12 @@ package com.csit321.farmeddversion2;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.util.Log;
 
 import android.content.Intent;
@@ -166,6 +170,15 @@ public class LogInActivity extends Activity {
 
     public void logIn(String username, String password) {
         try {
+            Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+// Vibrate for 500 milliseconds
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                v.vibrate(VibrationEffect.createOneShot(500, VibrationEffect.DEFAULT_AMPLITUDE));
+            } else {
+                //deprecated in API 26
+                v.vibrate(500);
+            }
+
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
             URL url = new URL("https://agriculturepipeline.herokuapp.com/main/user/login");
