@@ -6,6 +6,8 @@ import android.os.StrictMode;
 import com.csit321.farmeddversion2.Bugs.BugsActivity;
 import com.csit321.farmeddversion2.Farm.MyFarm;
 import com.csit321.farmeddversion2.MainActivity;
+import com.csit321.farmeddversion2.Messaging.MessagingActivity;
+import com.csit321.farmeddversion2.Messaging.RepliesActivity;
 import com.csit321.farmeddversion2.Plants.PlantsActivity;
 import com.csit321.farmeddversion2.R;
 import com.csit321.farmeddversion2.Utilities.SettingsActivity;
@@ -47,7 +49,7 @@ public class util  {
         bmb.addBuilder(new SimpleCircleButton.Builder().normalImageRes(R.drawable.chat_icon).normalColorRes(R.color.chatPurple).listener(new OnBMClickListener() {
             @Override
             public void onBoomButtonClick(int index) {
-                Intent menuIntent = new Intent(MainActivity.getAppContext().getApplicationContext(), SettingsActivity.class);
+                Intent menuIntent = new Intent(MainActivity.getAppContext().getApplicationContext(), MessagingActivity.class);
                 menuIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 MainActivity.getAppContext().getApplicationContext().startActivity(menuIntent);
             }
@@ -63,7 +65,7 @@ public class util  {
         bmb.addBuilder(new SimpleCircleButton.Builder().normalImageRes(R.drawable.help_icon).normalColorRes(R.color.questionBlue).listener(new OnBMClickListener() {
             @Override
             public void onBoomButtonClick(int index) {
-                Intent menuIntent = new Intent(MainActivity.getAppContext().getApplicationContext(), SettingsActivity.class);
+                Intent menuIntent = new Intent(MainActivity.getAppContext().getApplicationContext(), RepliesActivity.class);
                 menuIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 MainActivity.getAppContext().getApplicationContext().startActivity(menuIntent);
             }

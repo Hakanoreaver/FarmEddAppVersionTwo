@@ -20,6 +20,7 @@ import android.widget.TextView;
 
 import com.csit321.farmeddversion2.R;
 import com.csit321.farmeddversion2.Utils.util;
+import com.nightonke.boommenu.BoomMenuButton;
 
 import org.json.JSONObject;
 
@@ -37,6 +38,7 @@ import java.util.Locale;
 
 public class MessagingActivity extends AppCompatActivity {
 
+    BoomMenuButton bmb;
     private TextView mTextMessage;
     static int userID = 1;
     ImageView imageView;
@@ -62,6 +64,10 @@ public class MessagingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_messaging);
+
+
+        bmb = findViewById(R.id.bmb);
+        bmb = util.createBMBMenu(bmb);
 
         //Bind Variables
         final Button submitButton = (Button)findViewById(R.id.submitBtn);
