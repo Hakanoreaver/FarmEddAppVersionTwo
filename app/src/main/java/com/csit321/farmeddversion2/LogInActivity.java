@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,6 +45,7 @@ import butterknife.ButterKnife;
 public class LogInActivity extends Activity {
     private static final String TAG = "LoginActivity";
     private static final int REQUEST_SIGNUP = 0;
+    ProgressBar progressBar;
     TextView errorView;
     @BindView(R.id.input_email) EditText _emailText;
     @BindView(R.id.input_password) EditText _passwordText;
@@ -56,6 +58,8 @@ public class LogInActivity extends Activity {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_log_in);
         ButterKnife.bind(this);
+
+        progressBar = findViewById(R.id.progressBar);
 
         errorView = findViewById(R.id.loginErrorView);
 
@@ -85,31 +89,22 @@ public class LogInActivity extends Activity {
 
         _loginButton.setEnabled(false);
 
-        final ProgressDialog progressDialog = new ProgressDialog(LogInActivity.this,
-                R.style.AppTheme);
-
-        progressDialog.setIndeterminate(true);
-        progressDialog.setMessage("Authenticating...");
-        progressDialog.show();
+        progressBar.setVisibility(View.VISIBLE);
 
         final String email = _emailText.getText().toString();
         final String password = _passwordText.getText().toString();
 
+        Runnable r = new Runnable() {
+            @Override
+            public void run() {
+                logIn(email, password);
+            }
+        };
+        Thread thread = new Thread(r);
+        thread.start();
 
 
-        // TODO: Implement your own authentication logic here.
 
-        new android.os.Handler().post(
-                new Runnable() {
-                    public void run() {
-
-                        logIn(email, password);
-                        _loginButton.setEnabled(true);
-                        // On complete call either onLoginSuccess or onLoginFailed
-                        // onLoginFailed();
-                        progressDialog.dismiss();
-                    }
-                });
     }
 
 
@@ -169,16 +164,9 @@ public class LogInActivity extends Activity {
     }
 
     public void logIn(String username, String password) {
-        try {
-            Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-// Vibrate for 500 milliseconds
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                v.vibrate(VibrationEffect.createOneShot(500, VibrationEffect.DEFAULT_AMPLITUDE));
-            } else {
-                //deprecated in API 26
-                v.vibrate(500);
-            }
 
+
+        try {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
             URL url = new URL("https://agriculturepipeline.herokuapp.com/main/user/login");
@@ -215,6 +203,15 @@ public class LogInActivity extends Activity {
 
                 }
                 else {
+                    Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                    // Vibrate for 500 milliseconds
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                        v.vibrate(VibrationEffect.createOneShot(500, VibrationEffect.DEFAULT_AMPLITUDE));
+                    } else {
+                        //deprecated in API 26
+                        v.vibrate(500);
+                    }
+
                     if(Integer.parseInt(total.toString()) == -1) {
                         errorView.setText(R.string.usernameError);
                         errorView.setTextColor(getResources().getColor(R.color.errorText));
@@ -226,6 +223,8 @@ public class LogInActivity extends Activity {
                 }
             } finally {
                 urlConnection.disconnect();
+                progressBar.setVisibility(View.GONE);
+                _loginButton.setEnabled(true);
             }
         }
         catch (Exception e) {

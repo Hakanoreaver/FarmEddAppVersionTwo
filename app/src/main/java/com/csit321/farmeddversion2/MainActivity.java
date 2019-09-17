@@ -4,11 +4,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.Window;
+import android.widget.TextView;
 
 import com.csit321.farmeddversion2.Objects.PlantType;
 import com.csit321.farmeddversion2.Objects.PlantVarieties;
 import com.csit321.farmeddversion2.Objects.User;
-import com.csit321.farmeddversion2.Utils.util;
+import com.csit321.farmeddversion2.Utils.utils;
 import com.nightonke.boommenu.BoomMenuButton;
 
 import java.util.ArrayList;
@@ -20,6 +21,7 @@ public class MainActivity extends Activity {
     static User user;
     static ArrayList<PlantVarieties> plantVarietiesArrayList = new ArrayList<>();
     static ArrayList<PlantType> plantTypeArrayList = new ArrayList<>();
+    TextView userTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +31,10 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         bmb = findViewById(R.id.bmb);
-        bmb = util.createBMBMenu(bmb);
+        bmb = utils.createBMBMenu(bmb);
+
+        userTextView = findViewById(R.id.userTextView);
+        userTextView.setText(user.getUserName());
 
         makePlantVarieties();
         makePlantTypes();

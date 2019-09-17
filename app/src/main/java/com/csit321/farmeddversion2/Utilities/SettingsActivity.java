@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Window;
 
-import com.csit321.farmeddversion2.Utils.util;
+import com.csit321.farmeddversion2.Utils.utils;
 import com.csit321.farmeddversion2.R;
 import com.nightonke.boommenu.BoomMenuButton;
 
@@ -19,7 +19,7 @@ public class SettingsActivity extends Activity {
         setContentView(R.layout.activity_settings);
 
         bmb = findViewById(R.id.bmb);
-        bmb = util.createBMBMenu(bmb);
+        bmb = utils.createBMBMenu(bmb);
 
     }
 

@@ -77,4 +77,11 @@
     <string name="reply">Reply</string>
     <string name="wrongPin">Wrong Pin Code</string>
     <string name="usernameInUse">Username already in use</string>
+    <string name="cropError">Please enter a value for Crop Name</string>
+    <string name="myFarm">My Farm</string>
+    <string name="crops">Crops</string>
+    <string name="messaging">Messaging</string>
+    <string name="pestsAndDiseases">Pests and Diseases</string>
+    <string name="settings">Settings</string>
+    <string name="help">Help</string>
 </resources>

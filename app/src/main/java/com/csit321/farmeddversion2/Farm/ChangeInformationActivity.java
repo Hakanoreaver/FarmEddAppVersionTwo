@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.csit321.farmeddversion2.MainActivity;
 import com.csit321.farmeddversion2.Objects.User;
 import com.csit321.farmeddversion2.R;
-import com.csit321.farmeddversion2.Utils.util;
+import com.csit321.farmeddversion2.Utils.utils;
 import com.nightonke.boommenu.BoomMenuButton;
 
 import org.json.JSONException;
@@ -62,7 +62,7 @@ public class ChangeInformationActivity extends Activity {
 
     private void setVars() {
         bmb = findViewById(R.id.bmb);
-        bmb = util.createBMBMenu(bmb);
+        bmb = utils.createBMBMenu(bmb);
 
         saveButton = findViewById(R.id.saveButton);
         saveButton.setOnClickListener(new View.OnClickListener() {
@@ -174,9 +174,6 @@ public class ChangeInformationActivity extends Activity {
             }
             urlConnection.disconnect();
 
-            System.out.println("Here2");
-            System.out.println("Here2");
-            System.out.println("Here2");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
             System.out.println(e);

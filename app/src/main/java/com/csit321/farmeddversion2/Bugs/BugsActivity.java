@@ -7,7 +7,7 @@ import android.view.Window;
 import android.widget.TextView;
 
 import com.csit321.farmeddversion2.R;
-import com.csit321.farmeddversion2.Utils.util;
+import com.csit321.farmeddversion2.Utils.utils;
 import com.diegodobelo.expandingview.ExpandingItem;
 import com.diegodobelo.expandingview.ExpandingList;
 import com.nightonke.boommenu.BoomMenuButton;
@@ -25,7 +25,7 @@ public class BugsActivity extends Activity {
         setContentView(R.layout.activity_bugs);
 
         bmb = findViewById(R.id.bmb);
-        bmb = util.createBMBMenu(bmb);
+        bmb = utils.createBMBMenu(bmb);
 
         expandingList = (ExpandingList) findViewById(R.id.bugs_expanding_list);
         setUpItems();

@@ -7,19 +7,16 @@ import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
 
-import com.csit321.farmeddversion2.Farm.MyFarm;
 import com.csit321.farmeddversion2.MainActivity;
 import com.csit321.farmeddversion2.Objects.PlantType;
 import com.csit321.farmeddversion2.Objects.PlantVarieties;
 import com.csit321.farmeddversion2.Objects.User;
 import com.csit321.farmeddversion2.R;
-import com.csit321.farmeddversion2.Utilities.SettingsActivity;
-import com.csit321.farmeddversion2.Utils.util;
+import com.csit321.farmeddversion2.Utils.utils;
 import com.diegodobelo.expandingview.ExpandingItem;
 import com.diegodobelo.expandingview.ExpandingList;
 import com.nightonke.boommenu.BoomMenuButton;
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,7 +33,7 @@ public class PlantsActivity extends Activity {
         setContentView(R.layout.activity_plants);
 
         bmb = findViewById(R.id.bmb);
-        bmb = util.createBMBMenu(bmb);
+        bmb = utils.createBMBMenu(bmb);
 
         expandingList = (ExpandingList) findViewById(R.id.plants_expanding_list);
 

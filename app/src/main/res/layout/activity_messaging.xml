@@ -56,8 +56,67 @@
         app:layout_constraintTop_toBottomOf="@+id/textView7">
 
         <android.support.constraint.ConstraintLayout
+            android:id="@+id/cropContainer"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/questionContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lengthContainer">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/questionTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/question" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/frequencyContainer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toTopOf="@+id/questionContainer"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/lengthContainer"
+                app:layout_constraintTop_toBottomOf="@+id/pestContainer">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/frequencyTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/frequencyHint" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/lengthContainer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toStartOf="@+id/frequencyContainer"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fertContainer">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/lengthTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/lengthHint" />
+            </android.support.design.widget.TextInputLayout>
 
             <Button
                 android:id="@+id/selectBtn"
@@ -71,189 +130,178 @@
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="85dp"
+                android:layout_height="118dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
+                android:adjustViewBounds="true"
                 app:layout_constraintBottom_toTopOf="@+id/selectBtn"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.502"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/background_button" />
 
-            <EditText
-                android:id="@+id/nTxt"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="@string/nitrogen"
-                app:layout_constraintBottom_toTopOf="@+id/kTxt"
-                app:layout_constraintEnd_toStartOf="@+id/pTxt"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/selectBtn" />
-
-            <EditText
-                android:id="@+id/pTxt"
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/pestContainer"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="8dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="@string/phosphorous"
-                app:layout_constraintBottom_toTopOf="@+id/phTxt"
+                app:layout_constraintBottom_toTopOf="@+id/frequencyContainer"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/nTxt"
-                app:layout_constraintTop_toBottomOf="@+id/selectBtn" />
+                app:layout_constraintStart_toEndOf="@+id/fertContainer"
+                app:layout_constraintTop_toBottomOf="@+id/locContainer">
 
-            <EditText
-                android:id="@+id/kTxt"
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/pestTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/pesticidesHint" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/fertContainer"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="@string/potassium"
-                app:layout_constraintBottom_toTopOf="@+id/cropTxt"
-                app:layout_constraintEnd_toStartOf="@+id/phTxt"
+                app:layout_constraintBottom_toTopOf="@+id/lengthContainer"
+                app:layout_constraintEnd_toStartOf="@+id/pestContainer"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/nTxt" />
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout6">
 
-            <EditText
-                android:id="@+id/phTxt"
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/fertTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/fertilisersHint" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/locContainer"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="8dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="@string/pH"
-                app:layout_constraintBottom_toTopOf="@+id/locTxt"
+                app:layout_constraintBottom_toTopOf="@+id/pestContainer"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/kTxt"
-                app:layout_constraintTop_toBottomOf="@+id/pTxt" />
+                app:layout_constraintStart_toEndOf="@+id/textInputLayout6"
+                app:layout_constraintTop_toBottomOf="@+id/pHContainer">
 
-            <EditText
-                android:id="@+id/cropTxt"
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/locTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/location" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/textInputLayout6"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="@string/cropName"
-                app:layout_constraintBottom_toTopOf="@+id/pestTxt"
-                app:layout_constraintEnd_toStartOf="@+id/locTxt"
+                app:layout_constraintBottom_toTopOf="@+id/fertContainer"
+                app:layout_constraintEnd_toStartOf="@+id/locContainer"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/kTxt" />
+                app:layout_constraintTop_toBottomOf="@+id/kContainer">
 
-            <EditText
-                android:id="@+id/locTxt"
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/cropTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/cropName" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/pHContainer"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="8dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="@string/location"
-                app:layout_constraintBottom_toTopOf="@+id/fertTxt"
+                app:layout_constraintBottom_toTopOf="@+id/locContainer"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/cropTxt"
-                app:layout_constraintTop_toBottomOf="@+id/phTxt" />
+                app:layout_constraintStart_toEndOf="@+id/kContainer"
+                app:layout_constraintTop_toBottomOf="@+id/pContainer">
 
-            <EditText
-                android:id="@+id/fertTxt"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="8dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="@string/fertilisersHint"
-                app:layout_constraintBottom_toTopOf="@+id/lengthTxt"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/pestTxt"
-                app:layout_constraintTop_toBottomOf="@+id/locTxt" />
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/pHTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/pH" />
+            </android.support.design.widget.TextInputLayout>
 
-            <EditText
-                android:id="@+id/pestTxt"
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/kContainer"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="@string/pesticidesHint"
-                app:layout_constraintBottom_toTopOf="@+id/frequencyTxt"
-                app:layout_constraintEnd_toStartOf="@+id/fertTxt"
+                app:layout_constraintBottom_toTopOf="@+id/textInputLayout6"
+                app:layout_constraintEnd_toStartOf="@+id/pHContainer"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cropTxt" />
+                app:layout_constraintTop_toBottomOf="@+id/nContainer">
 
-            <EditText
-                android:id="@+id/frequencyTxt"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="8dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="@string/frequencyHint"
-                app:layout_constraintEnd_toStartOf="@+id/lengthTxt"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/pestTxt" />
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/kTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/potassium" />
+            </android.support.design.widget.TextInputLayout>
 
-            <EditText
-                android:id="@+id/lengthTxt"
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/pContainer"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="@string/lengthHint"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toTopOf="@+id/pHContainer"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/frequencyTxt"
-                app:layout_constraintTop_toBottomOf="@+id/fertTxt" />
+                app:layout_constraintStart_toEndOf="@+id/nContainer"
+                app:layout_constraintTop_toBottomOf="@+id/selectBtn">
 
-            <EditText
-                android:id="@+id/questionTxt"
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/pTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/phosphorous" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/nContainer"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toTopOf="@+id/kContainer"
+                app:layout_constraintEnd_toStartOf="@+id/pContainer"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/frequencyTxt"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintTop_toBottomOf="@+id/selectBtn">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/nTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/nitrogen" />
+            </android.support.design.widget.TextInputLayout>
+
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
 
@@ -268,6 +316,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progressBar2"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/errorView"

@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.csit321.farmeddversion2.MainActivity;
 import com.csit321.farmeddversion2.Objects.User;
 import com.csit321.farmeddversion2.R;
-import com.csit321.farmeddversion2.Utils.util;
+import com.csit321.farmeddversion2.Utils.utils;
 import com.diegodobelo.expandingview.ExpandingList;
 import com.nightonke.boommenu.BoomMenuButton;
 
@@ -77,7 +77,7 @@ public class MyFarm extends Activity {
         aggrozoneView = findViewById(R.id.agrozone_view);
 
         bmb = findViewById(R.id.bmb);
-        bmb = util.createBMBMenu(bmb);
+        bmb = utils.createBMBMenu(bmb);
 
         myInformationButton = findViewById(R.id.myInformationButton);
         myInformationButton.setOnClickListener(new View.OnClickListener() {

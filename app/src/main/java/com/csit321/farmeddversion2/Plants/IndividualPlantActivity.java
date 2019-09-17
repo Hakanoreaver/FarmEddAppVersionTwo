@@ -1,7 +1,6 @@
 package com.csit321.farmeddversion2.Plants;
 
 import android.app.Activity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -11,12 +10,10 @@ import com.csit321.farmeddversion2.MainActivity;
 import com.csit321.farmeddversion2.Objects.PlantType;
 import com.csit321.farmeddversion2.Objects.PlantVarieties;
 import com.csit321.farmeddversion2.R;
-import com.csit321.farmeddversion2.Utils.util;
+import com.csit321.farmeddversion2.Utils.utils;
 import com.diegodobelo.expandingview.ExpandingItem;
 import com.diegodobelo.expandingview.ExpandingList;
 import com.nightonke.boommenu.BoomMenuButton;
-
-import org.w3c.dom.Text;
 
 public class IndividualPlantActivity extends Activity {
 
@@ -38,7 +35,7 @@ public class IndividualPlantActivity extends Activity {
         pestsAndDiseaseList = findViewById(R.id.pestsAndDiseasesList);
 
         bmb = findViewById(R.id.bmb);
-        bmb = util.createBMBMenu(bmb);
+        bmb = utils.createBMBMenu(bmb);
 
         PlantVarieties p = null;
         for(PlantVarieties pv : MainActivity.getPlantVarietiesArrayList()) {

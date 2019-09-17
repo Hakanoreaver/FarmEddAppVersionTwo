@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class util  {
+public class utils {
 
     public static BoomMenuButton createBMBMenu(BoomMenuButton bmb) {
         bmb.setButtonEnum(ButtonEnum.SimpleCircle);

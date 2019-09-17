@@ -1,5 +1,6 @@
 package com.csit321.farmeddversion2.Messaging;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -11,15 +12,16 @@ import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Base64;
-import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.csit321.farmeddversion2.R;
-import com.csit321.farmeddversion2.Utils.util;
+import com.csit321.farmeddversion2.Utils.utils;
 import com.nightonke.boommenu.BoomMenuButton;
 
 import org.json.JSONObject;
@@ -36,7 +38,7 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.util.Locale;
 
-public class MessagingActivity extends AppCompatActivity {
+public class MessagingActivity extends Activity {
 
     BoomMenuButton bmb;
     private TextView mTextMessage;
@@ -56,6 +58,7 @@ public class MessagingActivity extends AppCompatActivity {
     TextView errorView;
     String currentPhotoPath;
     MessagingActivity context = this;
+    ProgressBar progressBar;
 
     static final int REQUEST_IMAGE_CAPTURE = 1;
     static final int REQUEST_TAKE_PHOTO = 1;
@@ -63,20 +66,21 @@ public class MessagingActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_messaging);
 
 
         bmb = findViewById(R.id.bmb);
-        bmb = util.createBMBMenu(bmb);
+        bmb = utils.createBMBMenu(bmb);
 
         //Bind Variables
         final Button submitButton = (Button)findViewById(R.id.submitBtn);
         Button selectButton = (Button)findViewById(R.id.selectBtn);
         imageView = (ImageView)findViewById(R.id.imageView);
-        pTxt = (EditText) findViewById(R.id.pTxt);
+        pTxt = (EditText) findViewById(R.id.nTxt);
         kTxt = (EditText) findViewById(R.id.kTxt);
         nTxt = (EditText) findViewById(R.id.nTxt);
-        phTxt = (EditText) findViewById(R.id.phTxt);
+        phTxt = (EditText) findViewById(R.id.pHTxt);
         cropTxt = (EditText) findViewById(R.id.cropTxt);
         locTxt = (EditText) findViewById(R.id.locTxt);
         questionTxt = (EditText) findViewById(R.id.questionTxt);
@@ -85,6 +89,7 @@ public class MessagingActivity extends AppCompatActivity {
         lengthTxt = findViewById(R.id.lengthTxt);
         frequencyTxt = findViewById(R.id.frequencyTxt);
         errorView = findViewById(R.id.errorView);
+        progressBar = findViewById(R.id.progressBar2);
 
         //Set Button on Click Listeners
         selectButton.setOnClickListener(new View.OnClickListener() {
@@ -102,7 +107,15 @@ public class MessagingActivity extends AppCompatActivity {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                submitQuestion();
+                progressBar.setVisibility(View.VISIBLE);
+                Runnable r = new Runnable() {
+                    @Override
+                    public void run() {
+                        submitQuestion();
+                    }
+                };
+                Thread thread = new Thread(r);
+                thread.start();
             }
         });
     }
@@ -110,36 +123,29 @@ public class MessagingActivity extends AppCompatActivity {
     public void submitQuestion() {
         String n = nTxt.getText().toString();
         if (n.equals("") || n == null) {
-            errorView.setText(R.string.nError);
-            errorView.setTextColor(getResources().getColor(R.color.errorText));
-            return;
+            n = "-1";
         }
 
         String p = pTxt.getText().toString();
         if (p.equals("") || p == null) {
-            errorView.setText(R.string.pError);
-            errorView.setTextColor(getResources().getColor(R.color.errorText));
-            return;
+            p = "-1";
         }
 
         String k = kTxt.getText().toString();
         if (k.equals("") || k == null) {
-            errorView.setText(R.string.kError);
-            errorView.setTextColor(getResources().getColor(R.color.errorText));
-            return;
+            k = "-1";
         }
 
         String pH = phTxt.getText().toString();
         if (pH.equals("") || pH == null) {
-            errorView.setText(R.string.pHError);
-            errorView.setTextColor(getResources().getColor(R.color.errorText));
-            return;
+            p = "-1";
         }
 
         String time = cropTxt.getText().toString();
         if (time.equals("") || time == null) {
-            errorView.setText(R.string.timeError);
+            errorView.setText(R.string.cropError);
             errorView.setTextColor(getResources().getColor(R.color.errorText));
+            progressBar.setVisibility(View.GONE);
             return;
         }
 
@@ -147,6 +153,7 @@ public class MessagingActivity extends AppCompatActivity {
         if (location.equals("") || location == null) {
             errorView.setText(R.string.locationError);
             errorView.setTextColor(getResources().getColor(R.color.errorText));
+            progressBar.setVisibility(View.GONE);
             return;
         }
 
@@ -154,34 +161,39 @@ public class MessagingActivity extends AppCompatActivity {
         if (question.equals("") || question == null) {
             errorView.setText(R.string.questionError);
             errorView.setTextColor(getResources().getColor(R.color.errorText));
+            progressBar.setVisibility(View.GONE);
             return;
         }
 
         String fertiliser = fertiliserTxt.getText().toString();
-        if (question.equals("") || question == null) {
+        if (fertiliser.equals("") || question == null) {
             errorView.setText(R.string.fertError);
             errorView.setTextColor(getResources().getColor(R.color.errorText));
+            progressBar.setVisibility(View.GONE);
             return;
         }
 
         String pesticide = pesticideTxt.getText().toString();
-        if (question.equals("") || question == null) {
+        if (pesticide.equals("") || question == null) {
             errorView.setText(R.string.pestError);
             errorView.setTextColor(getResources().getColor(R.color.errorText));
+            progressBar.setVisibility(View.GONE);
             return;
         }
 
         String length = lengthTxt.getText().toString();
-        if (question.equals("") || question == null) {
+        if (length.equals("") || question == null) {
             errorView.setText(R.string.lengthError);
             errorView.setTextColor(getResources().getColor(R.color.errorText));
+            progressBar.setVisibility(View.GONE);
             return;
         }
 
         String frequency = frequencyTxt.getText().toString();
-        if (question.equals("") || question == null) {
+        if (frequency.equals("") || question == null) {
             errorView.setText(R.string.freqError);
             errorView.setTextColor(getResources().getColor(R.color.errorText));
+            progressBar.setVisibility(View.GONE);
             return;
         }
 
@@ -196,6 +208,7 @@ public class MessagingActivity extends AppCompatActivity {
             System.out.println(e);
             errorView.setText(R.string.imageError);
             errorView.setTextColor(getResources().getColor(R.color.errorText));
+            progressBar.setVisibility(View.GONE);
             return;
         }
 
@@ -204,7 +217,7 @@ public class MessagingActivity extends AppCompatActivity {
             try {
                 StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
                 StrictMode.setThreadPolicy(policy);
-                HttpURLConnection urlConnection = util.httpFactory("https://agriculturepipeline.herokuapp.com/main/query/add", "POST");
+                HttpURLConnection urlConnection = utils.httpFactory("https://agriculturepipeline.herokuapp.com/main/query/add", "POST");
 
                 //Create JSON object
                 JSONObject jsonParam = new JSONObject();
@@ -260,7 +273,7 @@ public class MessagingActivity extends AppCompatActivity {
 
 /**
  String userpass = "username:password";
- String basicAuth = "Basic " + android.util.Base64.decode(userpass.getBytes("UTF-8"), android.util.Base64.DEFAULT );
+ String basicAuth = "Basic " + android.utils.Base64.decode(userpass.getBytes("UTF-8"), android.utils.Base64.DEFAULT );
  conn.setRequestProperty ("Authorizaton", userpass);
  **/
 
@@ -268,6 +281,7 @@ public class MessagingActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        progressBar.setVisibility(View.GONE);
     }
 
     @Override
