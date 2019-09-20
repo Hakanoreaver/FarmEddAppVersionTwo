@@ -3,6 +3,7 @@ package com.csit321.farmeddversion2;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -19,7 +20,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.csit321.farmeddversion2.Messaging.MessagingActivity;
 import com.csit321.farmeddversion2.Objects.User;
 import com.csit321.farmeddversion2.Utilities.SignUpActivity;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -38,6 +38,11 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -82,8 +87,38 @@ public class LogInActivity extends Activity {
                 overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
             }
         });
+
+        try {
+            System.out.println("Here");
+            checkLogIn();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
     }
 
+    public void checkLogIn() throws ParseException {
+        SharedPreferences sharedPref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        String dateString = sharedPref.getString("date", "01/01/0001");
+        Date date1 = new Date(dateString);
+        Calendar c = Calendar.getInstance();
+        c.setTime(date1);
+        c.add(Calendar.DATE,14);
+        date1 = c.getTime();
+        Calendar cal2  = Calendar.getInstance();
+        Date date2 = cal2.getInstance().getTime();
+        System.out.println(date1);
+        System.out.println(date2);
+        int userNum = sharedPref.getInt("userNum", -1);
+        System.out.println(userNum);
+        System.out.println(date2.compareTo(date1));
+        if(date2.compareTo(date1) < 0) {
+            //int userNum = sharedPref.getInt("userNum", -1);
+            if(userNum == -1) return;
+            getUser(userNum);
+
+        }
+
+    }
     public void login() {
         Log.d(TAG, "Login");
 
@@ -199,8 +234,16 @@ public class LogInActivity extends Activity {
                     total.append(line);
                 }
                 if(Integer.parseInt(total.toString()) > 0) {
-                    getUser(Integer.parseInt(total.toString()));
+                    SharedPreferences sharedPref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPref.edit();
+                    editor.putInt("userNum", Integer.parseInt(total.toString()));
+                    DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+                    Calendar cal = Calendar.getInstance();
+                    editor.putString("date", cal.getTime().toString());
+                    editor.commit();
 
+                    System.out.println("User Number - " + sharedPref.getInt("userNum", 79));
+                    getUser(Integer.parseInt(total.toString()));
                 }
                 else {
                     Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);

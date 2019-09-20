@@ -29,69 +29,69 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
-        android:id="@+id/button9"
+        android:id="@+id/myFarmButton"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@color/farmYellow"
         android:text="@string/myFarm"
-        app:layout_constraintBottom_toTopOf="@+id/button11"
-        app:layout_constraintEnd_toStartOf="@+id/button10"
+        app:layout_constraintBottom_toTopOf="@+id/plantsButton"
+        app:layout_constraintEnd_toStartOf="@+id/messagingButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userTextView" />
 
     <Button
-        android:id="@+id/button10"
+        android:id="@+id/messagingButton"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@color/chatPurple"
         android:text="@string/messaging"
-        app:layout_constraintBottom_toTopOf="@+id/button12"
+        app:layout_constraintBottom_toTopOf="@+id/pestsAndDiseasesButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button9"
+        app:layout_constraintStart_toEndOf="@+id/myFarmButton"
         app:layout_constraintTop_toBottomOf="@+id/userTextView" />
 
     <Button
-        android:id="@+id/button11"
+        android:id="@+id/plantsButton"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@color/treeGreen"
         android:text="@string/plants"
-        app:layout_constraintBottom_toTopOf="@+id/button13"
-        app:layout_constraintEnd_toStartOf="@+id/button12"
+        app:layout_constraintBottom_toTopOf="@+id/settingsButton"
+        app:layout_constraintEnd_toStartOf="@+id/pestsAndDiseasesButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button9" />
+        app:layout_constraintTop_toBottomOf="@+id/myFarmButton" />
 
     <Button
-        android:id="@+id/button12"
+        android:id="@+id/pestsAndDiseasesButton"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@color/statsRed"
         android:text="@string/pestsAndDiseases"
-        app:layout_constraintBottom_toTopOf="@+id/button14"
+        app:layout_constraintBottom_toTopOf="@+id/helpButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button11"
-        app:layout_constraintTop_toBottomOf="@+id/button10" />
+        app:layout_constraintStart_toEndOf="@+id/plantsButton"
+        app:layout_constraintTop_toBottomOf="@+id/messagingButton" />
 
     <Button
-        android:id="@+id/button13"
+        android:id="@+id/settingsButton"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@color/settingsGrey"
         android:text="@string/settings"
         app:layout_constraintBottom_toTopOf="@+id/bmb"
-        app:layout_constraintEnd_toStartOf="@+id/button14"
+        app:layout_constraintEnd_toStartOf="@+id/helpButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button11" />
+        app:layout_constraintTop_toBottomOf="@+id/plantsButton" />
 
     <Button
-        android:id="@+id/button14"
+        android:id="@+id/helpButton"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@color/questionBlue"
         android:text="@string/help"
         app:layout_constraintBottom_toTopOf="@+id/bmb"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button13"
-        app:layout_constraintTop_toBottomOf="@+id/button12" />
+        app:layout_constraintStart_toEndOf="@+id/settingsButton"
+        app:layout_constraintTop_toBottomOf="@+id/pestsAndDiseasesButton" />
 
 </android.support.constraint.ConstraintLayout>
