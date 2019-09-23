@@ -20,14 +20,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.nightonke.boommenu.BoomMenuButton
-        android:id="@+id/bmb"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
     <Button
         android:id="@+id/myFarmButton"
         android:layout_width="0dp"
@@ -78,7 +70,7 @@
         android:layout_height="0dp"
         android:background="@color/settingsGrey"
         android:text="@string/settings"
-        app:layout_constraintBottom_toTopOf="@+id/bmb"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/helpButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/plantsButton" />
@@ -89,7 +81,7 @@
         android:layout_height="0dp"
         android:background="@color/questionBlue"
         android:text="@string/help"
-        app:layout_constraintBottom_toTopOf="@+id/bmb"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/settingsButton"
         app:layout_constraintTop_toBottomOf="@+id/pestsAndDiseasesButton" />

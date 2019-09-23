@@ -33,6 +33,7 @@ public class MyFarm extends Activity {
     TextView soilTestView;
     TextView waterSourceView;
     TextView aggrozoneView;
+    Button backButton;
 
 
     @Override
@@ -41,6 +42,13 @@ public class MyFarm extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_my_farm);
         setVars();
+        backButton = findViewById(R.id.myFarmBackButton);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         test();
     }
 

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.csit321.farmeddversion2.MainActivity;
@@ -23,11 +24,22 @@ public class IndividualPlantActivity extends Activity {
     TextView temperatureView;
     BoomMenuButton bmb;
     ExpandingList pestsAndDiseaseList;
+    Button backButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_individual_plant);
+
+
+        backButton = findViewById(R.id.plantBackButton);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         plantNameView = findViewById(R.id.plantNameView);
         pHView = findViewById(R.id.pHViewPlant);

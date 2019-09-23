@@ -2,7 +2,9 @@ package com.csit321.farmeddversion2.Utilities;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
+import android.widget.Button;
 
 import com.csit321.farmeddversion2.Utils.utils;
 import com.csit321.farmeddversion2.R;
@@ -11,6 +13,7 @@ import com.nightonke.boommenu.BoomMenuButton;
 public class SettingsActivity extends Activity {
 
     BoomMenuButton bmb;
+    Button backButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +23,14 @@ public class SettingsActivity extends Activity {
 
         bmb = findViewById(R.id.bmb);
         bmb = utils.createBMBMenu(bmb);
+
+        backButton = findViewById(R.id.settingBackButton);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
     }
 

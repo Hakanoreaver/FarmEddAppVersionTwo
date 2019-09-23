@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.csit321.farmeddversion2.R;
@@ -15,7 +16,7 @@ import com.nightonke.boommenu.BoomMenuButton;
 public class BugsActivity extends Activity {
 
     BoomMenuButton bmb;
-
+    Button backButton;
     ExpandingList expandingList;
 
     @Override
@@ -29,6 +30,14 @@ public class BugsActivity extends Activity {
 
         expandingList = (ExpandingList) findViewById(R.id.bugs_expanding_list);
         setUpItems();
+
+        backButton = findViewById(R.id.bugsBackButton);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     private void setUpItems() {

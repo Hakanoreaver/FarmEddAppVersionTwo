@@ -50,6 +50,7 @@ public class ChangeInformationActivity extends Activity {
     TextView soilTestView;
     TextView waterSourceView;
     TextView aggrozoneView;
+    Button backButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +59,14 @@ public class ChangeInformationActivity extends Activity {
         setContentView(R.layout.activity_change_information);
 
         setVars();
+
+        backButton = findViewById(R.id.changeInformationBackButton);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
     private void setVars() {

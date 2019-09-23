@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.csit321.farmeddversion2.MainActivity;
@@ -25,6 +26,7 @@ public class PlantsActivity extends Activity {
     BoomMenuButton bmb;
     List<View> views = new ArrayList<>();
     ExpandingList expandingList;
+    Button backButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,14 @@ public class PlantsActivity extends Activity {
         bmb = utils.createBMBMenu(bmb);
 
         expandingList = (ExpandingList) findViewById(R.id.plants_expanding_list);
+
+        backButton = findViewById(R.id.plantsBackButton);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         setUpItems();
 

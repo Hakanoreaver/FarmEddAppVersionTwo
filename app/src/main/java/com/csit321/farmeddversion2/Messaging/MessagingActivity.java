@@ -59,6 +59,8 @@ public class MessagingActivity extends Activity {
     String currentPhotoPath;
     MessagingActivity context = this;
     ProgressBar progressBar;
+    Button backButton;
+
 
     static final int REQUEST_IMAGE_CAPTURE = 1;
     static final int REQUEST_TAKE_PHOTO = 1;
@@ -72,6 +74,14 @@ public class MessagingActivity extends Activity {
 
         bmb = findViewById(R.id.bmb);
         bmb = utils.createBMBMenu(bmb);
+
+        backButton = findViewById(R.id.messagingBackButton);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         //Bind Variables
         final Button submitButton = (Button)findViewById(R.id.submitBtn);

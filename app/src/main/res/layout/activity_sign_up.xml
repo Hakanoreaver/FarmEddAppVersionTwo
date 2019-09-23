@@ -7,16 +7,6 @@
     android:background="@color/background"
     tools:context=".Utilities.SignUpActivity">
 
-    <Button
-        android:id="@+id/repliesBackButton8"
-        android:layout_width="51dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="?attr/actionModeCloseDrawable"
-        app:layout_constraintStart_toStartOf="@+id/textView9"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/signUpView"
         android:layout_width="0dp"
@@ -31,6 +21,16 @@
         app:layout_constraintBottom_toTopOf="@+id/scrollView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/signUpBackButton"
+        android:layout_width="51dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -112,7 +112,7 @@
                 android:visibility="gone" />
 
             <TextView
-                android:id="@+id/ createErrorView"
+                android:id="@+id/createErrorView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"

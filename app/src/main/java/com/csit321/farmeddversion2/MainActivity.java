@@ -2,13 +2,21 @@ package com.csit321.farmeddversion2;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.TextView;
 
+import com.csit321.farmeddversion2.Bugs.BugsActivity;
+import com.csit321.farmeddversion2.Farm.MyFarm;
+import com.csit321.farmeddversion2.Messaging.MessagingActivity;
 import com.csit321.farmeddversion2.Objects.PlantType;
 import com.csit321.farmeddversion2.Objects.PlantVarieties;
 import com.csit321.farmeddversion2.Objects.User;
+import com.csit321.farmeddversion2.Plants.PlantsActivity;
+import com.csit321.farmeddversion2.Utilities.SettingsActivity;
 import com.csit321.farmeddversion2.Utils.utils;
 import com.nightonke.boommenu.BoomMenuButton;
 
@@ -16,12 +24,18 @@ import java.util.ArrayList;
 
 public class MainActivity extends Activity {
 
-    BoomMenuButton bmb;
     private static Context mContext;
     static User user;
     static ArrayList<PlantVarieties> plantVarietiesArrayList = new ArrayList<>();
     static ArrayList<PlantType> plantTypeArrayList = new ArrayList<>();
     TextView userTextView;
+
+    Button myFarm;
+    Button messaging;
+    Button plants;
+    Button pests;
+    Button settings;
+    Button help;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,15 +44,49 @@ public class MainActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
 
-        bmb = findViewById(R.id.bmb);
-        bmb = utils.createBMBMenu(bmb);
-        bmb.boomImmediately();
-
         userTextView = findViewById(R.id.userTextView);
         userTextView.setText(user.getUserName());
 
         makePlantVarieties();
         makePlantTypes();
+
+        myFarm = findViewById(R.id.myFarmButton);
+        messaging = findViewById(R.id.messagingButton);
+        plants = findViewById(R.id.plantsButton);
+        pests = findViewById(R.id.pestsAndDiseasesButton);
+        settings = findViewById(R.id.settingsButton);
+        help = findViewById(R.id.helpButton);
+
+        myFarm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openPage(1);
+            }
+        });
+        messaging.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openPage(2);
+            }
+        });
+        plants.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openPage(3);
+            }
+        });
+        pests.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openPage(4);
+            }
+        });
+        settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openPage(5);
+            }
+        });
     }
 
     public static Context getAppContext(){
@@ -132,6 +180,28 @@ public class MainActivity extends Activity {
 
     public static ArrayList<PlantVarieties> getPlantVarietiesArrayList() {
         return plantVarietiesArrayList;
+    }
+
+    void openPage(int page) {
+        switch(page) {
+            case 1 : Intent intent1 = new Intent(this, MyFarm.class);
+                startActivity(intent1);
+                break;
+            case 2 : Intent intent2 = new Intent(this, MessagingActivity.class);
+                startActivity(intent2);
+                break;
+            case 3 : Intent intent3 = new Intent(this, PlantsActivity.class);
+                startActivity(intent3);
+                break;
+            case 4 :Intent intent4 = new Intent(this, BugsActivity.class);
+                startActivity(intent4);
+                break;
+            case 5 :Intent intent5 = new Intent(this, SettingsActivity.class);
+                startActivity(intent5);
+                break;
+            case 6 : Intent intent6 = new Intent(this, MainActivity.class);
+                startActivity(intent6);
+        }
     }
 
 }
