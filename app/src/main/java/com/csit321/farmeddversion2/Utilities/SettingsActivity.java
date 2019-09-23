@@ -8,12 +8,16 @@ import android.widget.Button;
 
 import com.csit321.farmeddversion2.Utils.utils;
 import com.csit321.farmeddversion2.R;
+import com.gc.materialdesign.views.Switch;
 import com.nightonke.boommenu.BoomMenuButton;
 
 public class SettingsActivity extends Activity {
 
     BoomMenuButton bmb;
     Button backButton;
+    Button signOut;
+    Switch animationSwitch;
+    Switch plantSwitch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +35,9 @@ public class SettingsActivity extends Activity {
                 finish();
             }
         });
+
+        animationSwitch = findViewById(R.id.animationSwitch);
+        plantSwitch = findViewById(R.id.plantSwitch);
 
     }
 

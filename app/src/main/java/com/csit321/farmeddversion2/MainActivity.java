@@ -47,6 +47,8 @@ public class MainActivity extends Activity {
         userTextView = findViewById(R.id.userTextView);
         userTextView.setText(user.getUserName());
 
+        loadSettings();
+
         makePlantVarieties();
         makePlantTypes();
 
@@ -88,7 +90,7 @@ public class MainActivity extends Activity {
             }
         });
     }
-
+  
     public static Context getAppContext(){
         return mContext;
     }
