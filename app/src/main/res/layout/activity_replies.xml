@@ -20,15 +20,34 @@
         android:id="@+id/textView9"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:background="@color/heading"
         android:padding="10dp"
         android:text="@string/replies"
         android:textAlignment="center"
         android:textColor="@color/textWhite"
         android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/heading"
+        android:text="@string/selectQuestion"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/spinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
     <ScrollView
         android:id="@+id/scrollView7"
@@ -52,7 +71,9 @@
                 android:id="@+id/QuestionHeading"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="10dp"
                 android:layout_marginEnd="8dp"
+                android:background="@color/heading"
                 android:text="@string/question"
                 android:textAlignment="center"
                 android:textSize="24sp" />
@@ -61,12 +82,15 @@
                 android:id="@+id/questionTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp" />
+                android:layout_margin="20dp"
+                android:background="@color/textWhite" />
 
             <TextView
                 android:id="@+id/responseHeading"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@color/heading"
                 android:text="@string/reply"
                 android:textAlignment="center"
                 android:textSize="24sp" />
@@ -75,7 +99,8 @@
                 android:id="@+id/responseTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp" />
+                android:layout_margin="20dp"
+                android:background="@color/white" />
         </LinearLayout>
     </ScrollView>
 
@@ -84,10 +109,22 @@
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_margin="10dp"
+        android:layout_marginTop="8dp"
         android:textAlignment="viewStart"
         app:layout_constraintBottom_toTopOf="@+id/scrollView7"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+    <Button
+        android:id="@+id/repliesBackButton"
+        android:layout_width="51dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="?attr/actionModeCloseDrawable"
+        app:layout_constraintStart_toStartOf="@+id/textView9"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

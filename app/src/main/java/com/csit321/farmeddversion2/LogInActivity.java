@@ -246,15 +246,6 @@ public class LogInActivity extends Activity {
                     getUser(Integer.parseInt(total.toString()));
                 }
                 else {
-                    Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-                    // Vibrate for 500 milliseconds
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                        v.vibrate(VibrationEffect.createOneShot(500, VibrationEffect.DEFAULT_AMPLITUDE));
-                    } else {
-                        //deprecated in API 26
-                        v.vibrate(500);
-                    }
-
                     if(Integer.parseInt(total.toString()) == -1) {
                         errorView.setText(R.string.usernameError);
                         errorView.setTextColor(getResources().getColor(R.color.errorText));

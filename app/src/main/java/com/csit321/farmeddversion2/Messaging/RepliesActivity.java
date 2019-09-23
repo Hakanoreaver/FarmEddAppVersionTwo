@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -33,6 +34,7 @@ public class RepliesActivity extends Activity {
     Spinner spinner;
     TextView questionView;
     TextView replyView;
+    Button backButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +48,14 @@ public class RepliesActivity extends Activity {
         questionView = findViewById(R.id.questionTextView);
         replyView = findViewById(R.id.responseTextView);
         spinner = findViewById(R.id.spinner);
+
+        backButton = findViewById(R.id.repliesBackButton);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
 
 

@@ -32,6 +32,7 @@ public class MainActivity extends Activity {
 
         bmb = findViewById(R.id.bmb);
         bmb = utils.createBMBMenu(bmb);
+        bmb.boomImmediately();
 
         userTextView = findViewById(R.id.userTextView);
         userTextView.setText(user.getUserName());
