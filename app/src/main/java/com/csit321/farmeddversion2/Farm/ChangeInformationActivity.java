@@ -200,16 +200,13 @@ public class ChangeInformationActivity extends Activity {
             System.out.println(e);
         }
 
-        Intent menuIntent = new Intent(this, MyFarm.class);
-        menuIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        this.startActivity(menuIntent);
+
         overridePendingTransition(R.anim.push_right_out, R.anim.push_right_in);
+        finish();
     }
 
     private void cancel() {
-        Intent menuIntent = new Intent(this, MyFarm.class);
-        menuIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        this.startActivity(menuIntent);
         overridePendingTransition(R.anim.push_right_out, R.anim.push_right_in);
+        finish();
     }
 }

@@ -23,6 +23,8 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import javax.net.ssl.HttpsURLConnection;
+
 public class utils {
 
     public static BoomMenuButton createBMBMenu(BoomMenuButton bmb) {
@@ -82,12 +84,12 @@ public class utils {
         return bmb;
     }
 
-    public static HttpURLConnection httpFactory(String urlString, String requestType) throws IOException {
+    public static HttpsURLConnection httpFactory(String urlString, String requestType) throws IOException {
         //Set up the connection
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         URL url = new URL(urlString);
-        HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+        HttpsURLConnection urlConnection = (HttpsURLConnection) url.openConnection();
         urlConnection.setDoOutput (true);
         urlConnection.setUseCaches (false);
         urlConnection.setRequestMethod(requestType);

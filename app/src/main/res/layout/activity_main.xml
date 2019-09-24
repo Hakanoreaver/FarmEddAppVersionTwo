@@ -59,7 +59,7 @@
         android:layout_height="0dp"
         android:background="@color/statsRed"
         android:text="@string/pestsAndDiseases"
-        app:layout_constraintBottom_toTopOf="@+id/helpButton"
+        app:layout_constraintBottom_toTopOf="@+id/repliesButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/plantsButton"
         app:layout_constraintTop_toBottomOf="@+id/messagingButton" />
@@ -71,16 +71,16 @@
         android:background="@color/settingsGrey"
         android:text="@string/settings"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/helpButton"
+        app:layout_constraintEnd_toStartOf="@+id/repliesButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/plantsButton" />
 
     <Button
-        android:id="@+id/helpButton"
+        android:id="@+id/repliesButton"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@color/questionBlue"
-        android:text="@string/help"
+        android:text="@string/replies"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/settingsButton"

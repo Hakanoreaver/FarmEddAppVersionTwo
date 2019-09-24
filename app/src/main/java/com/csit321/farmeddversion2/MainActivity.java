@@ -9,16 +9,16 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 
+
 import com.csit321.farmeddversion2.Bugs.BugsActivity;
 import com.csit321.farmeddversion2.Farm.MyFarm;
 import com.csit321.farmeddversion2.Messaging.MessagingActivity;
+import com.csit321.farmeddversion2.Messaging.RepliesActivity;
 import com.csit321.farmeddversion2.Objects.PlantType;
 import com.csit321.farmeddversion2.Objects.PlantVarieties;
 import com.csit321.farmeddversion2.Objects.User;
 import com.csit321.farmeddversion2.Plants.PlantsActivity;
 import com.csit321.farmeddversion2.Utilities.SettingsActivity;
-import com.csit321.farmeddversion2.Utils.utils;
-import com.nightonke.boommenu.BoomMenuButton;
 
 import java.util.ArrayList;
 
@@ -35,7 +35,7 @@ public class MainActivity extends Activity {
     Button plants;
     Button pests;
     Button settings;
-    Button help;
+    Button replies;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +47,6 @@ public class MainActivity extends Activity {
         userTextView = findViewById(R.id.userTextView);
         userTextView.setText(user.getUserName());
 
-        loadSettings();
-
         makePlantVarieties();
         makePlantTypes();
 
@@ -57,7 +55,7 @@ public class MainActivity extends Activity {
         plants = findViewById(R.id.plantsButton);
         pests = findViewById(R.id.pestsAndDiseasesButton);
         settings = findViewById(R.id.settingsButton);
-        help = findViewById(R.id.helpButton);
+        replies = findViewById(R.id.repliesButton);
 
         myFarm.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,6 +85,12 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 openPage(5);
+            }
+        });
+        replies.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openPage(6);
             }
         });
     }
@@ -201,7 +205,7 @@ public class MainActivity extends Activity {
             case 5 :Intent intent5 = new Intent(this, SettingsActivity.class);
                 startActivity(intent5);
                 break;
-            case 6 : Intent intent6 = new Intent(this, MainActivity.class);
+            case 6 : Intent intent6 = new Intent(this, RepliesActivity.class);
                 startActivity(intent6);
         }
     }

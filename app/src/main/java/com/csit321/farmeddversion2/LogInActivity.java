@@ -91,8 +91,18 @@ public class LogInActivity extends Activity {
         try {
             System.out.println("Here");
             checkLogIn();
-        } catch (ParseException e) {
+        } catch (Exception e) {
             e.printStackTrace();
+        }
+
+        SharedPreferences sharedPref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        if(!sharedPref.contains("plantsOn")) {
+            sharedPref.edit().putBoolean("plantsOn", true);
+            sharedPref.edit().commit();
+        }
+        if(!sharedPref.contains("animationsOn")) {
+            sharedPref.edit().putBoolean("animationsOn", true);
+            sharedPref.edit().commit();
         }
     }
 
@@ -159,43 +169,6 @@ public class LogInActivity extends Activity {
     public void onBackPressed() {
         // Disable going back to the MainActivity
         moveTaskToBack(true);
-    }
-
-    public void onLoginSuccess() {
-        _loginButton.setEnabled(true);
-        Intent menuIntent = new Intent(this, MainActivity.class);
-        menuIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        this.startActivity(menuIntent);
-        finish();
-    }
-
-    public void onLoginFailed() {
-        Toast.makeText(getBaseContext(), "Login failed", Toast.LENGTH_LONG).show();
-
-        _loginButton.setEnabled(true);
-    }
-
-    public boolean validate() {
-        boolean valid = true;
-
-        String email = _emailText.getText().toString();
-        String password = _passwordText.getText().toString();
-
-        if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            _emailText.setError("enter a valid email address");
-            valid = false;
-        } else {
-            _emailText.setError(null);
-        }
-
-        if (password.isEmpty() || password.length() < 4 || password.length() > 10) {
-            _passwordText.setError("between 4 and 10 alphanumeric characters");
-            valid = false;
-        } else {
-            _passwordText.setError(null);
-        }
-
-        return valid;
     }
 
     public void logIn(String username, String password) {

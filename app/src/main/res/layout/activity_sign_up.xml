@@ -60,6 +60,7 @@
                 android:layout_margin="10dp">
 
                 <android.support.design.widget.TextInputEditText
+                    android:id="@+id/usernameSignUpField"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/username" />

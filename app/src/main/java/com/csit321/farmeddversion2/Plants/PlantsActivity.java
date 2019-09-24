@@ -1,7 +1,9 @@
 package com.csit321.farmeddversion2.Plants;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -73,14 +75,18 @@ public class PlantsActivity extends Activity {
                 final View subItemZero = item.getSubItemView(i);
                 ((TextView) subItemZero.findViewById(R.id.sub_title)).setText(pvs.get(i).getVarietyName());
                 subItemZero.setId(pvs.get(i).getId());
-                if(pvs.get(i).getpHMin() < u.getpH() && pvs.get(i).getpHMax() > u.getpH()) {
-                    subItemZero.setBackgroundColor(getResources().getColor(R.color.good));
-                }
-                else if((pvs.get(i).getpHMin() - 1) < u.getpH() && (pvs.get(i).getpHMax() + 1) > u.getpH()) {
-                    subItemZero.setBackgroundColor(getResources().getColor(R.color.medium));
+                SharedPreferences sharedPref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                if(sharedPref.getBoolean("plantsOn", true)) {
+                    if (pvs.get(i).getpHMin() < u.getpH() && pvs.get(i).getpHMax() > u.getpH()) {
+                        subItemZero.setBackgroundColor(getResources().getColor(R.color.good));
+                    } else if ((pvs.get(i).getpHMin() - 1) < u.getpH() && (pvs.get(i).getpHMax() + 1) > u.getpH()) {
+                        subItemZero.setBackgroundColor(getResources().getColor(R.color.medium));
+                    } else {
+                        subItemZero.setBackgroundColor(getResources().getColor(R.color.bad));
+                    }
                 }
                 else {
-                    subItemZero.setBackgroundColor(getResources().getColor(R.color.bad));
+                    subItemZero.setBackgroundColor(getResources().getColor(R.color.good));
                 }
             }
 
