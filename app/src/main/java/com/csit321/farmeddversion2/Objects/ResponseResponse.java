@@ -41,6 +41,6 @@ public class ResponseResponse {
     }
 
     public String toString() {
-        return questionId + " " + question;
+        return question;
     }
 }

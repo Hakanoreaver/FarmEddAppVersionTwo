@@ -83,13 +83,11 @@ public class LogInActivity extends Activity {
                 // Start the Signup activity
                 Intent intent = new Intent(getApplicationContext(), SignUpActivity.class);
                 startActivityForResult(intent, REQUEST_SIGNUP);
-                finish();
                 overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
             }
         });
 
         try {
-            System.out.println("Here");
             checkLogIn();
         } catch (Exception e) {
             e.printStackTrace();

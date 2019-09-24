@@ -65,7 +65,8 @@
                     android:id="@+id/questionTxt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/question" />
+                    android:hint="@string/question"
+                    android:textColorHint="@color/default_bmb_normal_color" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
