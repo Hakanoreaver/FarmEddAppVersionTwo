@@ -64,7 +64,7 @@ public class ChangeInformationActivity extends Activity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                back();
             }
         });
     }
@@ -200,13 +200,23 @@ public class ChangeInformationActivity extends Activity {
             System.out.println(e);
         }
 
+        Intent intent = new Intent(this, MyFarm.class);
+        startActivity(intent);
 
         overridePendingTransition(R.anim.push_right_out, R.anim.push_right_in);
         finish();
     }
 
     private void cancel() {
+        Intent intent = new Intent(this, MyFarm.class);
+        startActivity(intent);
         overridePendingTransition(R.anim.push_right_out, R.anim.push_right_in);
+        finish();
+    }
+
+    private void back() {
+        Intent menuIntent = new Intent(this, MyFarm.class);
+        this.startActivity(menuIntent);
         finish();
     }
 }

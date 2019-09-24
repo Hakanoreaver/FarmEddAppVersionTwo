@@ -76,7 +76,8 @@
                     android:id="@+id/passwordInputOne"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/password" />
+                    android:hint="@string/password"
+                    android:inputType="textPassword" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -89,7 +90,8 @@
                     android:id="@+id/passwordInputTwo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/repeatPassword" />
+                    android:hint="@string/repeatPassword"
+                    android:inputType="textPassword" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -102,7 +104,8 @@
                     android:id="@+id/securityPinEdit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/pinString" />
+                    android:hint="@string/pinString"
+                    android:inputType="textPassword" />
             </android.support.design.widget.TextInputLayout>
 
             <ProgressBar

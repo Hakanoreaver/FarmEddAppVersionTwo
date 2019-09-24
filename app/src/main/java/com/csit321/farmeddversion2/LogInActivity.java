@@ -218,10 +218,12 @@ public class LogInActivity extends Activity {
                 }
                 else {
                     if(Integer.parseInt(total.toString()) == -1) {
+                        _loginButton.setEnabled(true);
                         errorView.setText(R.string.usernameError);
                         errorView.setTextColor(getResources().getColor(R.color.errorText));
                     }
                     else {
+                        _loginButton.setEnabled(true);
                         errorView.setText(R.string.passwordError);
                         errorView.setTextColor(getResources().getColor(R.color.errorText));
                     }
