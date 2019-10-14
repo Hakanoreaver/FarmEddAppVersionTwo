@@ -10,9 +10,11 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.csit321.farmeddversion2.Database.FarmEdDatabase;
+import com.csit321.farmeddversion2.Database.Objects.PlantTypes;
+import com.csit321.farmeddversion2.Database.Objects.PlantVarieties;
 import com.csit321.farmeddversion2.MainActivity;
 import com.csit321.farmeddversion2.Objects.PlantType;
-import com.csit321.farmeddversion2.Objects.PlantVarieties;
 import com.csit321.farmeddversion2.Objects.User;
 import com.csit321.farmeddversion2.R;
 import com.csit321.farmeddversion2.Utils.utils;
@@ -20,8 +22,11 @@ import com.diegodobelo.expandingview.ExpandingItem;
 import com.diegodobelo.expandingview.ExpandingList;
 import com.nightonke.boommenu.BoomMenuButton;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.csit321.farmeddversion2.MainActivity.getAppContext;
 
 public class PlantsActivity extends Activity {
 
@@ -39,6 +44,9 @@ public class PlantsActivity extends Activity {
         bmb = findViewById(R.id.bmb);
         bmb = utils.createBMBMenu(bmb);
 
+        System.out.println("Plant Types");
+        System.out.println(MainActivity.database.plantTypesDAO().getAll());
+
         expandingList = (ExpandingList) findViewById(R.id.plants_expanding_list);
 
         backButton = findViewById(R.id.plantsBackButton);
@@ -49,7 +57,9 @@ public class PlantsActivity extends Activity {
             }
         });
 
+
         setUpItems();
+
 
 
 
@@ -59,17 +69,13 @@ public class PlantsActivity extends Activity {
 
     private void setUpItems() {
         User u = MainActivity.getUser();
+        List<PlantTypes> plants = MainActivity.getDatabase().plantTypesDAO().getAll();
 
-        for(PlantType pt : MainActivity.getPlantTypeArrayList()) {
+        for(PlantTypes pt : plants) {
             ExpandingItem item = expandingList.createNewItem(R.layout.expanding_layout);
-            item.setIndicatorColorRes(R.color.treeGreen);
+            item.setIndicatorColorRes(R.color.expandingListIcon);
             ((TextView) item.findViewById(R.id.title)).setText(pt.getPlantTypeName());
-            ArrayList<PlantVarieties> pvs = new ArrayList<>();
-            for(PlantVarieties pv : MainActivity.getPlantVarietiesArrayList()) {
-                if(pv.getPlantTypeID() == pt.getId()) {
-                    pvs.add(pv);
-                }
-            }
+            List<PlantVarieties> pvs = MainActivity.getDatabase().plantVarietiesDAO().findByType(pt.getPlantTypeName());
             item.createSubItems(pvs.size());
             for(int i = 0; i < pvs.size(); i++) {
                 final View subItemZero = item.getSubItemView(i);
@@ -77,16 +83,16 @@ public class PlantsActivity extends Activity {
                 subItemZero.setId(pvs.get(i).getId());
                 SharedPreferences sharedPref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                 if(sharedPref.getBoolean("plantsOn", true)) {
-                    if (pvs.get(i).getpHMin() < u.getpH() && pvs.get(i).getpHMax() > u.getpH()) {
+                    if (pvs.get(i).getPhMin() < u.getpH() && pvs.get(i).getPhMax() > u.getpH()) {
                         subItemZero.setBackgroundColor(getResources().getColor(R.color.good));
-                    } else if ((pvs.get(i).getpHMin() - 1) < u.getpH() && (pvs.get(i).getpHMax() + 1) > u.getpH()) {
+                    } else if ((pvs.get(i).getPhMin() - 1) < u.getpH() && (pvs.get(i).getPhMax() + 1) > u.getpH()) {
                         subItemZero.setBackgroundColor(getResources().getColor(R.color.medium));
                     } else {
                         subItemZero.setBackgroundColor(getResources().getColor(R.color.bad));
                     }
                 }
                 else {
-                    subItemZero.setBackgroundColor(getResources().getColor(R.color.good));
+                    ((TextView) subItemZero.findViewById(R.id.sub_title)).setTextColor(getResources().getColor(R.color.white));
                 }
             }
 
@@ -96,9 +102,9 @@ public class PlantsActivity extends Activity {
                     @Override
                     public void onClick(View v) {
                         IndividualPlantActivity.setPlantId(v.getId());
-                        Intent menuIntent = new Intent(MainActivity.getAppContext().getApplicationContext(), IndividualPlantActivity.class);
+                        Intent menuIntent = new Intent(getAppContext().getApplicationContext(), IndividualPlantActivity.class);
                         menuIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        MainActivity.getAppContext().getApplicationContext().startActivity(menuIntent);
+                        getAppContext().getApplicationContext().startActivity(menuIntent);
                     }
                 });
             }
@@ -106,4 +112,8 @@ public class PlantsActivity extends Activity {
 
 
     }
+
+
+
+
 }

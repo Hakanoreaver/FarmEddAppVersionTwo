@@ -118,13 +118,21 @@ public class LogInActivity extends Activity {
         Date date2 = cal2.getInstance().getTime();
         System.out.println(date1);
         System.out.println(date2);
-        int userNum = sharedPref.getInt("userNum", -1);
+        final int userNum = sharedPref.getInt("userNum", -1);
         System.out.println(userNum);
         System.out.println(date2.compareTo(date1));
         if(date2.compareTo(date1) < 0) {
             //int userNum = sharedPref.getInt("userNum", -1);
             if(userNum == -1) return;
-            getUser(userNum);
+            Runnable r = new Runnable() {
+                @Override
+                public void run() {
+                    getUser(userNum);
+                }
+            };
+            Thread t = new Thread(r);
+            t.start();
+
 
         }
 

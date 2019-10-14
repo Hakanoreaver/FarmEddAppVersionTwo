@@ -7,9 +7,10 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.csit321.farmeddversion2.Database.Objects.PlantTypes;
+import com.csit321.farmeddversion2.Database.Objects.PlantVarieties;
 import com.csit321.farmeddversion2.MainActivity;
 import com.csit321.farmeddversion2.Objects.PlantType;
-import com.csit321.farmeddversion2.Objects.PlantVarieties;
 import com.csit321.farmeddversion2.R;
 import com.csit321.farmeddversion2.Utils.utils;
 import com.diegodobelo.expandingview.ExpandingItem;
@@ -49,35 +50,22 @@ public class IndividualPlantActivity extends Activity {
         bmb = findViewById(R.id.bmb);
         bmb = utils.createBMBMenu(bmb);
 
-        PlantVarieties p = null;
-        for(PlantVarieties pv : MainActivity.getPlantVarietiesArrayList()) {
-            if(pv.getId() == plantId) p = pv;
-        }
 
-        PlantType pt = MainActivity.getPlantTypeArrayList().get(p.getPlantTypeID()-1);
 
-        plantNameView.setText(pt.getPlantTypeName() + " : " + p.getVarietyName());
-        pHView.setText("pH " + p.getpHMin() + " - " + p.getpHMax());
-        temperatureView.setText("Temp" + p.getGrowingTempMin() + " - " + p.getGrowingTempMax());
+        PlantVarieties pv = MainActivity.getDatabase().plantVarietiesDAO().findById(plantId);
+
+        plantNameView.setText(pv.getCropName() + " : " + pv.getVarietyName());
+        pHView.setText("pH " + pv.getPhMin() + " - " + pv.getPhMax());
+        temperatureView.setText("Temp" + pv.getTemperatureMin() + " - " + pv.getGetTemperatureMax());
 
         ExpandingItem pests = pestsAndDiseaseList.createNewItem(R.layout.expanding_layout);
         pests.setIndicatorColorRes(R.color.treeGreen);
-        ((TextView) pests.findViewById(R.id.title)).setText("Pests");
-        String[] pestList = p.getPests().split(",");
+        ((TextView) pests.findViewById(R.id.title)).setText("Pests and Diseases");
+        String[] pestList = pv.getPestAndDiseases().split(",");
         pests.createSubItems(pestList.length);
         for(int i = 0; i < pestList.length; i++) {
             final View subItem = pests.getSubItemView(i);
             ((TextView) subItem.findViewById(R.id.sub_title)).setText(pestList[i]);
-        }
-
-        ExpandingItem diseases = pestsAndDiseaseList.createNewItem(R.layout.expanding_layout);
-        diseases.setIndicatorColorRes(R.color.treeGreen);
-        ((TextView) diseases.findViewById(R.id.title)).setText("Diseases");
-        String[] diseaseList = p.getDiseases().split(",");
-        diseases.createSubItems(diseaseList.length);
-        for(int i = 0; i < diseaseList.length; i++) {
-            final View subItem = diseases.getSubItemView(i);
-            ((TextView) subItem.findViewById(R.id.sub_title)).setText(diseaseList[i]);
         }
     }
 

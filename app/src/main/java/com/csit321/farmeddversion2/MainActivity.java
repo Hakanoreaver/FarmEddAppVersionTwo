@@ -1,6 +1,8 @@
 package com.csit321.farmeddversion2;
 
 import android.app.Activity;
+import android.arch.persistence.room.Room;
+import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +13,8 @@ import android.widget.TextView;
 
 
 import com.csit321.farmeddversion2.Bugs.BugsActivity;
+import com.csit321.farmeddversion2.Database.FarmEdDatabase;
+import com.csit321.farmeddversion2.Database.Objects.PlantTypes;
 import com.csit321.farmeddversion2.Farm.MyFarm;
 import com.csit321.farmeddversion2.Messaging.MessagingActivity;
 import com.csit321.farmeddversion2.Messaging.RepliesActivity;
@@ -37,12 +41,16 @@ public class MainActivity extends Activity {
     Button settings;
     Button replies;
 
+    public static FarmEdDatabase database;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mContext = this.getApplicationContext();
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
+
+        createRoomDatabase();
 
         userTextView = findViewById(R.id.userTextView);
         userTextView.setText(user.getUserName());
@@ -208,6 +216,22 @@ public class MainActivity extends Activity {
             case 6 : Intent intent6 = new Intent(this, RepliesActivity.class);
                 startActivity(intent6);
         }
+    }
+
+    void createRoomDatabase() {
+        Runnable r = new Runnable() {
+            @Override
+            public void run() {
+                database = FarmEdDatabase.getInstance(getAppContext());
+            }
+        };
+        Thread t = new Thread(r);
+        t.start();
+
+    }
+
+    public static FarmEdDatabase getDatabase() {
+        return database;
     }
 
 }
