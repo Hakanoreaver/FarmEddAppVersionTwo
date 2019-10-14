@@ -71,9 +71,9 @@ public class MainActivity extends Activity {
             myFarm.setEnabled(false);
             messaging.setEnabled(false);
             replies.setEnabled(false);
-            findViewById(R.id.myFarmFrame).setBackgroundColor(getResources().getColor(R.color.disabled));
-            findViewById(R.id.MessagingFrame).setBackgroundColor(getResources().getColor(R.color.disabled));
-            findViewById(R.id.RepliesFrame).setBackgroundColor(getResources().getColor(R.color.disabled));
+            findViewById(R.id.myFarmFrame).setBackground(getResources().getDrawable(R.drawable.round_disabled));
+            findViewById(R.id.MessagingFrame).setBackground(getResources().getDrawable(R.drawable.round_disabled));
+            findViewById(R.id.RepliesFrame).setBackground(getResources().getDrawable(R.drawable.round_disabled));
         }
 
         myFarm.setOnClickListener(new View.OnClickListener() {
