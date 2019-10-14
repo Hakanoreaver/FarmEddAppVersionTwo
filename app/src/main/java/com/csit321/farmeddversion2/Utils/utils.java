@@ -37,7 +37,6 @@ public class utils {
                 Intent menuIntent = new Intent(MainActivity.getAppContext().getApplicationContext(), PlantsActivity.class);
                 menuIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 MainActivity.getAppContext().getApplicationContext().startActivity(menuIntent);
-
             }
         }));
         bmb.addBuilder(new SimpleCircleButton.Builder().normalImageRes(R.drawable.farm_icon).normalColorRes(R.color.farmYellow).listener(new OnBMClickListener() {
@@ -56,7 +55,7 @@ public class utils {
                 MainActivity.getAppContext().getApplicationContext().startActivity(menuIntent);
             }
         }));
-        bmb.addBuilder(new SimpleCircleButton.Builder().normalImageRes(R.drawable.stats_icon).normalColorRes(R.color.statsRed).listener(new OnBMClickListener() {
+        bmb.addBuilder(new SimpleCircleButton.Builder().normalImageRes(R.drawable.bug).normalColorRes(R.color.statsRed).listener(new OnBMClickListener() {
             @Override
             public void onBoomButtonClick(int index) {
                 Intent menuIntent = new Intent(MainActivity.getAppContext().getApplicationContext(), BugsActivity.class);

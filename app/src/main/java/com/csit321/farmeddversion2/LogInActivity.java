@@ -83,13 +83,11 @@ public class LogInActivity extends Activity {
                 // Start the Signup activity
                 Intent intent = new Intent(getApplicationContext(), SignUpActivity.class);
                 startActivityForResult(intent, REQUEST_SIGNUP);
-                finish();
                 overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
             }
         });
 
         try {
-            System.out.println("Here");
             checkLogIn();
         } catch (Exception e) {
             e.printStackTrace();
@@ -228,10 +226,12 @@ public class LogInActivity extends Activity {
                 }
                 else {
                     if(Integer.parseInt(total.toString()) == -1) {
+                        _loginButton.setEnabled(true);
                         errorView.setText(R.string.usernameError);
                         errorView.setTextColor(getResources().getColor(R.color.errorText));
                     }
                     else {
+                        _loginButton.setEnabled(true);
                         errorView.setText(R.string.passwordError);
                         errorView.setTextColor(getResources().getColor(R.color.errorText));
                     }

@@ -101,6 +101,7 @@ public class MyFarm extends Activity {
         menuIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         this.startActivity(menuIntent);
         overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+        finish();
     }
 
 }

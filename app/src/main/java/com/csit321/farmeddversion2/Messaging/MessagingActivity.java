@@ -118,14 +118,8 @@ public class MessagingActivity extends Activity {
             @Override
             public void onClick(View view) {
                 progressBar.setVisibility(View.VISIBLE);
-                Runnable r = new Runnable() {
-                    @Override
-                    public void run() {
-                        submitQuestion();
-                    }
-                };
-                Thread thread = new Thread(r);
-                thread.start();
+                submitQuestion();
+                progressBar.setVisibility(View.GONE);
             }
         });
     }
@@ -155,7 +149,6 @@ public class MessagingActivity extends Activity {
         if (time.equals("") || time == null) {
             errorView.setText(R.string.cropError);
             errorView.setTextColor(getResources().getColor(R.color.errorText));
-            progressBar.setVisibility(View.GONE);
             return;
         }
 
@@ -163,7 +156,6 @@ public class MessagingActivity extends Activity {
         if (location.equals("") || location == null) {
             errorView.setText(R.string.locationError);
             errorView.setTextColor(getResources().getColor(R.color.errorText));
-            progressBar.setVisibility(View.GONE);
             return;
         }
 
@@ -171,7 +163,6 @@ public class MessagingActivity extends Activity {
         if (question.equals("") || question == null) {
             errorView.setText(R.string.questionError);
             errorView.setTextColor(getResources().getColor(R.color.errorText));
-            progressBar.setVisibility(View.GONE);
             return;
         }
 
@@ -179,7 +170,6 @@ public class MessagingActivity extends Activity {
         if (fertiliser.equals("") || question == null) {
             errorView.setText(R.string.fertError);
             errorView.setTextColor(getResources().getColor(R.color.errorText));
-            progressBar.setVisibility(View.GONE);
             return;
         }
 
@@ -187,7 +177,6 @@ public class MessagingActivity extends Activity {
         if (pesticide.equals("") || question == null) {
             errorView.setText(R.string.pestError);
             errorView.setTextColor(getResources().getColor(R.color.errorText));
-            progressBar.setVisibility(View.GONE);
             return;
         }
 
@@ -195,7 +184,6 @@ public class MessagingActivity extends Activity {
         if (length.equals("") || question == null) {
             errorView.setText(R.string.lengthError);
             errorView.setTextColor(getResources().getColor(R.color.errorText));
-            progressBar.setVisibility(View.GONE);
             return;
         }
 
@@ -203,7 +191,6 @@ public class MessagingActivity extends Activity {
         if (frequency.equals("") || question == null) {
             errorView.setText(R.string.freqError);
             errorView.setTextColor(getResources().getColor(R.color.errorText));
-            progressBar.setVisibility(View.GONE);
             return;
         }
 
@@ -218,7 +205,6 @@ public class MessagingActivity extends Activity {
             System.out.println(e);
             errorView.setText(R.string.imageError);
             errorView.setTextColor(getResources().getColor(R.color.errorText));
-            progressBar.setVisibility(View.GONE);
             return;
         }
 
@@ -291,7 +277,7 @@ public class MessagingActivity extends Activity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        progressBar.setVisibility(View.GONE);
+
     }
 
     @Override
