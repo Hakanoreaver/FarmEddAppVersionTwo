@@ -1,8 +1,8 @@
 package com.csit321.farmeddversion2.Database.Objects;
 
-import android.arch.persistence.room.ColumnInfo;
-import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.PrimaryKey;
+        import android.arch.persistence.room.ColumnInfo;
+        import android.arch.persistence.room.Entity;
+        import android.arch.persistence.room.PrimaryKey;
 
 @Entity(tableName = "PlantVarieties") //Table name
 public class PlantVarieties

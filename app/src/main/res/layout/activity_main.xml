@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+
     tools:context=".MainActivity">
 
     <TextView
@@ -20,70 +22,162 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/myFarmButton"
+    <FrameLayout
+        android:id="@+id/myFarmFrame"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/farmYellow"
-        android:text="@string/myFarm"
-        app:layout_constraintBottom_toTopOf="@+id/plantsButton"
-        app:layout_constraintEnd_toStartOf="@+id/messagingButton"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/round"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayout2"
+        app:layout_constraintEnd_toStartOf="@+id/MessagingFrame"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/userTextView">
 
-    <Button
-        android:id="@+id/messagingButton"
+        <Button
+            android:id="@+id/myFarmButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/farm_icon" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/MessagingFrame"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/chatPurple"
-        android:text="@string/messaging"
-        app:layout_constraintBottom_toTopOf="@+id/pestsAndDiseasesButton"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/round"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayout4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/myFarmButton"
-        app:layout_constraintTop_toBottomOf="@+id/userTextView" />
+        app:layout_constraintHorizontal_bias="0.305"
+        app:layout_constraintStart_toEndOf="@+id/myFarmFrame"
+        app:layout_constraintTop_toBottomOf="@+id/userTextView">
 
-    <Button
-        android:id="@+id/plantsButton"
+        <Button
+            android:id="@+id/messagingButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/chat_icon" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayout2"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/treeGreen"
-        android:text="@string/plants"
-        app:layout_constraintBottom_toTopOf="@+id/settingsButton"
-        app:layout_constraintEnd_toStartOf="@+id/pestsAndDiseasesButton"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/round"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayout5"
+        app:layout_constraintEnd_toStartOf="@+id/frameLayout4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/myFarmButton" />
+        app:layout_constraintTop_toBottomOf="@+id/myFarmFrame">
 
-    <Button
-        android:id="@+id/pestsAndDiseasesButton"
+        <Button
+            android:id="@+id/plantsButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/wheat_icon" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayout4"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/statsRed"
-        android:text="@string/pestsAndDiseases"
-        app:layout_constraintBottom_toTopOf="@+id/repliesButton"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/round"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintBottom_toTopOf="@+id/RepliesFrame"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/plantsButton"
-        app:layout_constraintTop_toBottomOf="@+id/messagingButton" />
+        app:layout_constraintStart_toEndOf="@+id/frameLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/MessagingFrame">
 
-    <Button
-        android:id="@+id/settingsButton"
+        <Button
+            android:id="@+id/pestsAndDiseasesButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/bug" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayout5"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/settingsGrey"
-        android:text="@string/settings"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/round"
+        app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/repliesButton"
+        app:layout_constraintEnd_toStartOf="@+id/RepliesFrame"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/plantsButton" />
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout2">
 
-    <Button
-        android:id="@+id/repliesButton"
+        <Button
+            android:id="@+id/settingsButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/cog_icon" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/RepliesFrame"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/questionBlue"
-        android:text="@string/replies"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/round"
+        app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/settingsButton"
-        app:layout_constraintTop_toBottomOf="@+id/pestsAndDiseasesButton" />
+        app:layout_constraintStart_toEndOf="@+id/frameLayout5"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout4"
+        app:layout_constraintVertical_bias="0.486">
+
+        <Button
+            android:id="@+id/repliesButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/help_icon" />
+    </FrameLayout>
 
 </android.support.constraint.ConstraintLayout>

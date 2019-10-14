@@ -32,4 +32,6 @@
     <color name="expandingListBackground">#241445</color>
     <color name="expandingListIcon">#f53693</color>
 
+    <color name="disabled">#929292</color>
+
 </resources>

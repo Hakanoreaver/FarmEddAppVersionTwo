@@ -50,6 +50,7 @@ public class MainActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
 
+
         createRoomDatabase();
 
         userTextView = findViewById(R.id.userTextView);
@@ -64,6 +65,16 @@ public class MainActivity extends Activity {
         pests = findViewById(R.id.pestsAndDiseasesButton);
         settings = findViewById(R.id.settingsButton);
         replies = findViewById(R.id.repliesButton);
+
+        Intent intent = getIntent();
+        if(intent.getBooleanExtra("offline", false)) {
+            myFarm.setEnabled(false);
+            messaging.setEnabled(false);
+            replies.setEnabled(false);
+            findViewById(R.id.myFarmFrame).setBackgroundColor(getResources().getColor(R.color.disabled));
+            findViewById(R.id.MessagingFrame).setBackgroundColor(getResources().getColor(R.color.disabled));
+            findViewById(R.id.RepliesFrame).setBackgroundColor(getResources().getColor(R.color.disabled));
+        }
 
         myFarm.setOnClickListener(new View.OnClickListener() {
             @Override

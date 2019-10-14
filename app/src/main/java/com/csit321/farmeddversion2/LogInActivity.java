@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -120,18 +122,20 @@ public class LogInActivity extends Activity {
         System.out.println(userNum);
         System.out.println(date2.compareTo(date1));
         if(date2.compareTo(date1) < 0) {
-            //int userNum = sharedPref.getInt("userNum", -1);
-            if(userNum == -1) return;
-            Runnable r = new Runnable() {
-                @Override
-                public void run() {
-                    getUser(userNum);
-                }
-            };
-            Thread t = new Thread(r);
-            t.start();
-
-
+            if(!isNetworkAvailable()) {
+                openMainPageOffline("Offline Mode");
+            }
+            else {
+                if(userNum == -1) return;
+                Runnable r = new Runnable() {
+                    @Override
+                    public void run() {
+                        getUser(userNum);
+                    }
+                };
+                Thread t = new Thread(r);
+                t.start();
+            }
         }
 
     }
@@ -288,8 +292,26 @@ public class LogInActivity extends Activity {
 
     public void openMainPage(){
         Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("offline", false);
         startActivity(intent);
         finish();
+    }
+
+    public void openMainPageOffline(String username){
+        User u = new User();
+        u.setUserName(username);
+        MainActivity.setUser(u);
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("offline", true);
+        startActivity(intent);
+        finish();
+    }
+
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null;
     }
 
 
