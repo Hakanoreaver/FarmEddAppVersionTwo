@@ -34,11 +34,8 @@
         android:id="@+id/scrollView4"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/bugsSearchTextEdit"
+        app:layout_constraintBottom_toTopOf="@+id/bmb"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5">
@@ -48,35 +45,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </ScrollView>
-
-    <Button
-        android:id="@+id/bugsSearchButton"
-        android:layout_width="195dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginBottom="8dp"
-        android:text="@string/search"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/bmb"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bugsSearchTextEdit" />
-
-    <EditText
-        android:id="@+id/bugsSearchTextEdit"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="1dp"
-        android:ems="10"
-        android:hint="@string/search"
-        android:inputType="textPersonName"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/bugsSearchButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView4" />
 
     <Button
         android:id="@+id/bugsBackButton"

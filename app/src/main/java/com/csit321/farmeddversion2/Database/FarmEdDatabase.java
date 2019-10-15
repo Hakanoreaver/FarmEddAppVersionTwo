@@ -18,7 +18,7 @@ import com.csit321.farmeddversion2.Database.Objects.PlantVarieties;
 
 import java.util.concurrent.Executors;
 
-@Database(entities = {Pests.class, PlantVarieties.class, PlantTypes.class, Diseases.class}, version = 9)
+@Database(entities = {Pests.class, PlantVarieties.class, PlantTypes.class, Diseases.class}, version = 10)
 public abstract class FarmEdDatabase extends RoomDatabase {
 
     private static FarmEdDatabase INSTANCE;

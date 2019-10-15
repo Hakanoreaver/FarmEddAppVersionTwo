@@ -126,6 +126,8 @@ public class LogInActivity extends Activity {
                 openMainPageOffline("Offline Mode");
             }
             else {
+                progressBar.setVisibility(View.VISIBLE);
+                _loginButton.setEnabled(false);
                 if(userNum == -1) return;
                 Runnable r = new Runnable() {
                     @Override

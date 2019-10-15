@@ -87,4 +87,5 @@
     <string name="selectQuestion">Select Question</string>
     <string name="plantColours">Show Plant Suitability</string>
     <string name="logOut">Log Out</string>
+    <string name="title_activity_individual_bug">IndividualBugActivity</string>
 </resources>

@@ -25,30 +25,44 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Messaging.RepliesActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Messaging.MessagingActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Messaging.MessagingTerminalActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Plants.PlantsAdvancedSearchActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Bugs.BugsAdvancedSearchActivity"
+        <activity
+            android:name=".Bugs.IndividualBugActivity"
+            android:label="@string/title_activity_individual_bug"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".Bugs.IndivudualBug" />
+        <activity
+            android:name=".Messaging.RepliesActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Messaging.MessagingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Messaging.MessagingTerminalActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Plants.PlantsAdvancedSearchActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".Bugs.BugsActivity" />
-        <activity android:name=".Plants.IndividualPlantActivity"
+        <activity
+            android:name=".Plants.IndividualPlantActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".Utilities.SignUpActivity"
+        <activity
+            android:name=".Utilities.SignUpActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".Farm.ChangeInformationActivity"
+        <activity
+            android:name=".Farm.ChangeInformationActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".Farm.MyFarm"
+        <activity
+            android:name=".Farm.MyFarm"
             android:screenOrientation="portrait" />
-        <activity android:name=".Plants.PlantsActivity"
+        <activity
+            android:name=".Plants.PlantsActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".Utilities.SettingsActivity"
+        <activity
+            android:name=".Utilities.SettingsActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".LogInActivity"
+        <activity
+            android:name=".LogInActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -56,8 +70,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

@@ -8,6 +8,7 @@ import android.arch.persistence.room.Update;
 
 import com.csit321.farmeddversion2.Database.Objects.Diseases;
 import com.csit321.farmeddversion2.Database.Objects.Pests;
+import com.csit321.farmeddversion2.Database.Objects.PlantVarieties;
 
 import java.util.List;
 
@@ -19,4 +20,7 @@ public interface PestsDAO
 
     @Query("SELECT * FROM Pests")
     List<Pests> getAll();
+
+    @Query("SELECT * FROM Pests WHERE id = :id")
+    Pests findById(int id);
 }

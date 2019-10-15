@@ -7,6 +7,7 @@ import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 
 import com.csit321.farmeddversion2.Database.Objects.Diseases;
+import com.csit321.farmeddversion2.Database.Objects.PlantVarieties;
 
 import java.util.List;
 
@@ -17,4 +18,7 @@ public interface DiseasesDAO {
 
     @Insert
     void insertAll(Diseases... diseases);
+
+    @Query("SELECT * FROM Diseases WHERE id = :id")
+    Diseases findById(int id);
 }

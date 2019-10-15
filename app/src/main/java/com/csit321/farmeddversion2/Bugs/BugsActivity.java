@@ -1,17 +1,27 @@
 package com.csit321.farmeddversion2.Bugs;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.csit321.farmeddversion2.Database.Objects.Diseases;
+import com.csit321.farmeddversion2.Database.Objects.Pests;
+import com.csit321.farmeddversion2.Database.Objects.PlantTypes;
+import com.csit321.farmeddversion2.MainActivity;
+import com.csit321.farmeddversion2.Plants.IndividualPlantActivity;
 import com.csit321.farmeddversion2.R;
 import com.csit321.farmeddversion2.Utils.utils;
 import com.diegodobelo.expandingview.ExpandingItem;
 import com.diegodobelo.expandingview.ExpandingList;
 import com.nightonke.boommenu.BoomMenuButton;
+
+import java.util.List;
+
+import static com.csit321.farmeddversion2.MainActivity.getAppContext;
 
 public class BugsActivity extends Activity {
 
@@ -41,28 +51,53 @@ public class BugsActivity extends Activity {
     }
 
     private void setUpItems() {
-        for(int i = 0; i < 4; i++) {
-            ExpandingItem item = expandingList.createNewItem(R.layout.expanding_layout);
-            item.setIndicatorColorRes(R.color.treeGreen);
-            ((TextView) item.findViewById(R.id.title)).setText("Scales");
-            //This will create 5 items
-            item.createSubItems(5);
+       List<Diseases> diseases = MainActivity.getDatabase().diseasesDAO().getAll();
+       List<Pests> pests = MainActivity.getDatabase().pestsDAO().getAll();
 
-            //get a sub item View
-            View subItemZero = item.getSubItemView(0);
-            ((TextView) subItemZero.findViewById(R.id.sub_title)).setText("Waxy Scale");
+        ExpandingItem diseasesItem = expandingList.createNewItem(R.layout.expanding_layout);
+        diseasesItem.setIndicatorColorRes(R.color.expandingListIcon);
+        ((TextView) diseasesItem.findViewById(R.id.title)).setText("Diseases");
 
-            View subItemOne = item.getSubItemView(1);
-            ((TextView) subItemOne.findViewById(R.id.sub_title)).setText("Black Scale");
+        diseasesItem.createSubItems(diseases.size());
 
-            View subItemTwo = item.getSubItemView(2);
-            ((TextView) subItemTwo.findViewById(R.id.sub_title)).setText("Greedy Scale");
+        for(int i = 0; i < diseases.size(); i++) {
+            final View subItemZero = diseasesItem.getSubItemView(i);
+            ((TextView) subItemZero.findViewById(R.id.sub_title)).setText(diseases.get(i).getDiseaseName());
+            subItemZero.setId(diseases.get(i).getId());
+            ((TextView) subItemZero.findViewById(R.id.sub_title)).setTextColor(getResources().getColor(R.color.white));
+            subItemZero.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getAppContext().getApplicationContext(), IndividualBugActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.putExtra("id", v.getId());
+                    intent.putExtra("bug", false);
+                    getAppContext().getApplicationContext().startActivity(intent);
+                }
+            });
+        }
 
-            View subItemThree = item.getSubItemView(3);
-            ((TextView) subItemThree.findViewById(R.id.sub_title)).setText("Olive Scale");
+        ExpandingItem pestsItem = expandingList.createNewItem(R.layout.expanding_layout);
+        pestsItem.setIndicatorColorRes(R.color.expandingListIcon);
+        ((TextView) pestsItem.findViewById(R.id.title)).setText("Pests");
 
-            View subItemFour = item.getSubItemView(4);
-            ((TextView) subItemFour.findViewById(R.id.sub_title)).setText("Oak Scale");
+        pestsItem.createSubItems(pests.size());
+
+        for(int i = 0; i < pests.size(); i++) {
+            final View subItemZero = pestsItem.getSubItemView(i);
+            ((TextView) subItemZero.findViewById(R.id.sub_title)).setText(pests.get(i).getPestName());
+            subItemZero.setId(pests.get(i).getId());
+            ((TextView) subItemZero.findViewById(R.id.sub_title)).setTextColor(getResources().getColor(R.color.white));
+            subItemZero.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getAppContext().getApplicationContext(), IndividualBugActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.putExtra("id", v.getId());
+                    intent.putExtra("bug", true);
+                    getAppContext().getApplicationContext().startActivity(intent);
+                }
+            });
         }
     }
 }
