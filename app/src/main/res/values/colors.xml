@@ -22,7 +22,7 @@
     <color name="textWhite">#FFFFFF</color>
     <color name="textBlack">#000000</color>
     <color name="title">#00BCD4</color>
-    <color name="actionButton">#C51162</color>
+    <color name="actionButton">#000000</color>
     <color name="errorText">#FF0000</color>
     <color name="successText">#27e52a</color>
 
