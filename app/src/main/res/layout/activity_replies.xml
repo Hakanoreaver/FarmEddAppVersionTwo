@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
+    android:background="@color/backgroundColour"
     tools:context=".Messaging.RepliesActivity">
 
     <com.nightonke.boommenu.BoomMenuButton
@@ -43,6 +43,8 @@
         android:background="@color/heading"
         android:text="@string/selectQuestion"
         android:textAlignment="center"
+        android:textColor="@color/textWhite"
+        android:textColorLink="@color/textWhite"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/spinner"
         app:layout_constraintEnd_toEndOf="parent"
@@ -76,6 +78,7 @@
                 android:background="@color/heading"
                 android:text="@string/question"
                 android:textAlignment="center"
+                android:textColor="@color/textWhite"
                 android:textSize="24sp" />
 
             <TextView
@@ -94,6 +97,7 @@
                 android:background="@color/heading"
                 android:text="@string/reply"
                 android:textAlignment="center"
+                android:textColor="@color/textWhite"
                 android:textSize="24sp" />
 
             <TextView
@@ -101,7 +105,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
-                android:background="@color/white"
+                android:background="@color/textWhite"
+                android:textColor="@color/textBlack"
                 android:textSize="20sp" />
         </LinearLayout>
     </ScrollView>

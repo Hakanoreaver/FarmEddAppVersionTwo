@@ -59,10 +59,9 @@ public class RepliesActivity extends Activity {
     }
 
 
-
     @Override
-    protected  void onResume() {
-        super.onResume();
+    public void onAttachedToWindow() {
+        super.onAttachedToWindow();
         loadReplies();
     }
 

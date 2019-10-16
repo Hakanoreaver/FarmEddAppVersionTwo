@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
+    android:background="@color/backgroundColour"
     tools:context=".Utilities.SettingsActivity">
 
     <com.nightonke.boommenu.BoomMenuButton
@@ -67,6 +67,9 @@
                 android:id="@+id/logOutButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/actionButton"
                 android:text="@string/logOut" />
 
         </LinearLayout>

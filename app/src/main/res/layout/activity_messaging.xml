@@ -5,7 +5,7 @@
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
+    android:background="@color/backgroundColour"
     tools:context=".Messaging.MessagingActivity">
 
     <com.nightonke.boommenu.BoomMenuButton
@@ -298,8 +298,10 @@
         android:id="@+id/submitBtn"
         android:layout_width="255dp"
         android:layout_height="54dp"
-        android:background="@color/heading"
+        android:background="@color/textBlack"
         android:text="@string/send"
+        android:textColor="@color/textWhite"
+        android:textColorLink="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/bmb"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

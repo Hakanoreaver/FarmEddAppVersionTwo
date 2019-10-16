@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
+    android:background="@color/backgroundColour"
     android:clickable="true"
     tools:context=".Farm.MyFarm">
 
@@ -26,6 +26,7 @@
         android:layout_weight="1"
         android:background="@color/heading"
         android:text="My Information"
+        android:textColor="@color/textWhite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -83,7 +84,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:background="#C1E6FF"
+        android:background="@android:color/transparent"
         app:layout_constraintBottom_toTopOf="@+id/myInformationButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

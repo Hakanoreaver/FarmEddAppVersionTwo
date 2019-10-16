@@ -12,16 +12,17 @@
     <color name="greyOne">#1a025c</color>
     <color name="greyTwo">#1a025c</color>
     <color name="greyThree">#1a025c</color>
-    <color name="white">#ffffff</color>
+    <color name="white">#000000</color>
 
-    <color name="heading">#488dc3</color>
-    <color name="background">#b6d1de</color>
+    <color name="heading">#070707</color>
+    <color name="background">#FFFFFF</color>
+    <color name="backgroundColour">#26FF9402</color>
 
 
     <color name="textWhite">#FFFFFF</color>
     <color name="textBlack">#000000</color>
     <color name="title">#00BCD4</color>
-    <color name="actionButton">#EA80FC</color>
+    <color name="actionButton">#C51162</color>
     <color name="errorText">#FF0000</color>
     <color name="successText">#27e52a</color>
 
@@ -29,9 +30,11 @@
     <color name="medium">#F5BB7C</color>
     <color name="bad">#EB6F6F</color>
 
-    <color name="expandingListBackground">#241445</color>
+    <color name="expandingListBackground">#FFFFFF</color>
     <color name="expandingListIcon">#f53693</color>
 
     <color name="disabled">#929292</color>
+
+    <color name="seperator">#26FF9402</color>
 
 </resources>
