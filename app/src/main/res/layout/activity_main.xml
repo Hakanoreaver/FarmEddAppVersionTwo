@@ -40,12 +40,19 @@
         <Button
             android:id="@+id/myFarmButton"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/farm_icon" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/myFarm"
+            android:textAlignment="center" />
     </FrameLayout>
 
     <FrameLayout
@@ -73,6 +80,13 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/chat_icon" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/messaging"
+            android:textAlignment="center" />
     </FrameLayout>
 
     <FrameLayout
@@ -99,6 +113,13 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/wheat_icon" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/plants"
+            android:textAlignment="center" />
     </FrameLayout>
 
     <FrameLayout
@@ -125,6 +146,13 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/bug" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/bugs"
+            android:textAlignment="center" />
     </FrameLayout>
 
     <FrameLayout
@@ -151,6 +179,13 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/cog_icon" />
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/settings"
+            android:textAlignment="center" />
     </FrameLayout>
 
     <FrameLayout
@@ -178,6 +213,13 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/help_icon" />
+
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/replies"
+            android:textAlignment="center" />
     </FrameLayout>
 
 </android.support.constraint.ConstraintLayout>
