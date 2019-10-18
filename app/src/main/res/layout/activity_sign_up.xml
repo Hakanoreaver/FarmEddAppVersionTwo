@@ -126,8 +126,10 @@
                 android:id="@+id/createAccountButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/textBlack"
                 android:text="@string/createAccount"
                 android:textAlignment="center"
+                android:textColor="@color/textWhite"
                 android:textSize="24sp" />
         </LinearLayout>
     </ScrollView>

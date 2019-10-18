@@ -28,10 +28,11 @@ import javax.net.ssl.HttpsURLConnection;
 public class utils {
 
     public static BoomMenuButton createBMBMenu(BoomMenuButton bmb) {
+        bmb.setNormalColor(R.color.textBlack);
         bmb.setButtonEnum(ButtonEnum.SimpleCircle);
         bmb.setPiecePlaceEnum(PiecePlaceEnum.DOT_6_1);
         bmb.setButtonPlaceEnum(ButtonPlaceEnum.SC_6_3);
-        bmb.addBuilder(new SimpleCircleButton.Builder().normalImageRes(R.drawable.wheat_icon).normalColorRes(R.color.treeGreen).listener(new OnBMClickListener() {
+        bmb.addBuilder(new SimpleCircleButton.Builder().normalImageRes(R.drawable.wheat_icon).normalColorRes(R.color.textWhite).listener(new OnBMClickListener() {
             @Override
             public void onBoomButtonClick(int index) {
                 Intent menuIntent = new Intent(MainActivity.getAppContext().getApplicationContext(), PlantsActivity.class);
@@ -39,7 +40,7 @@ public class utils {
                 MainActivity.getAppContext().getApplicationContext().startActivity(menuIntent);
             }
         }));
-        bmb.addBuilder(new SimpleCircleButton.Builder().normalImageRes(R.drawable.farm_icon).normalColorRes(R.color.farmYellow).listener(new OnBMClickListener() {
+        bmb.addBuilder(new SimpleCircleButton.Builder().normalImageRes(R.drawable.farm_icon).normalColorRes(R.color.textWhite).listener(new OnBMClickListener() {
             @Override
             public void onBoomButtonClick(int index) {
                 Intent menuIntent = new Intent(MainActivity.getAppContext().getApplicationContext(), MyFarm.class);
@@ -47,7 +48,7 @@ public class utils {
                 MainActivity.getAppContext().getApplicationContext().startActivity(menuIntent);
             }
         }));
-        bmb.addBuilder(new SimpleCircleButton.Builder().normalImageRes(R.drawable.chat_icon).normalColorRes(R.color.chatPurple).listener(new OnBMClickListener() {
+        bmb.addBuilder(new SimpleCircleButton.Builder().normalImageRes(R.drawable.chat_icon).normalColorRes(R.color.textWhite).listener(new OnBMClickListener() {
             @Override
             public void onBoomButtonClick(int index) {
                 Intent menuIntent = new Intent(MainActivity.getAppContext().getApplicationContext(), MessagingActivity.class);
@@ -55,7 +56,7 @@ public class utils {
                 MainActivity.getAppContext().getApplicationContext().startActivity(menuIntent);
             }
         }));
-        bmb.addBuilder(new SimpleCircleButton.Builder().normalImageRes(R.drawable.bug).normalColorRes(R.color.statsRed).listener(new OnBMClickListener() {
+        bmb.addBuilder(new SimpleCircleButton.Builder().normalImageRes(R.drawable.bug).normalColorRes(R.color.textWhite).listener(new OnBMClickListener() {
             @Override
             public void onBoomButtonClick(int index) {
                 Intent menuIntent = new Intent(MainActivity.getAppContext().getApplicationContext(), BugsActivity.class);
@@ -63,7 +64,7 @@ public class utils {
                 MainActivity.getAppContext().getApplicationContext().startActivity(menuIntent);
             }
         }));
-        bmb.addBuilder(new SimpleCircleButton.Builder().normalImageRes(R.drawable.help_icon).normalColorRes(R.color.questionBlue).listener(new OnBMClickListener() {
+        bmb.addBuilder(new SimpleCircleButton.Builder().normalImageRes(R.drawable.help_icon).normalColorRes(R.color.textWhite).listener(new OnBMClickListener() {
             @Override
             public void onBoomButtonClick(int index) {
                 Intent menuIntent = new Intent(MainActivity.getAppContext().getApplicationContext(), RepliesActivity.class);
@@ -71,7 +72,7 @@ public class utils {
                 MainActivity.getAppContext().getApplicationContext().startActivity(menuIntent);
             }
         }));
-        bmb.addBuilder(new SimpleCircleButton.Builder().normalImageRes(R.drawable.cog_icon).normalColorRes(R.color.settingsGrey).listener(new OnBMClickListener() {
+        bmb.addBuilder(new SimpleCircleButton.Builder().normalImageRes(R.drawable.cog_icon).normalColorRes(R.color.textWhite).listener(new OnBMClickListener() {
             @Override
             public void onBoomButtonClick(int index) {
                 Intent menuIntent = new Intent(MainActivity.getAppContext().getApplicationContext(), SettingsActivity.class);

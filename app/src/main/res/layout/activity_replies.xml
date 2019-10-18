@@ -39,14 +39,12 @@
         android:layout_margin="10dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
         android:background="@color/heading"
         android:text="@string/selectQuestion"
         android:textAlignment="center"
         android:textColor="@color/textWhite"
         android:textColorLink="@color/textWhite"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/spinner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
@@ -55,13 +53,13 @@
         android:id="@+id/scrollView7"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/bmb"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner">
+        app:layout_constraintTop_toBottomOf="@+id/cardView">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -73,8 +71,8 @@
                 android:id="@+id/QuestionHeading"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:background="@color/heading"
                 android:text="@string/question"
                 android:textAlignment="center"
@@ -85,7 +83,8 @@
                 android:id="@+id/questionTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:background="@color/textWhite"
                 android:textSize="20sp" />
 
@@ -93,7 +92,9 @@
                 android:id="@+id/responseHeading"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="5dp"
                 android:background="@color/heading"
                 android:text="@string/reply"
                 android:textAlignment="center"
@@ -104,32 +105,40 @@
                 android:id="@+id/responseTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:background="@color/textWhite"
                 android:textColor="@color/textBlack"
                 android:textSize="20sp" />
         </LinearLayout>
     </ScrollView>
 
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_margin="10dp"
-        android:layout_marginTop="8dp"
-        android:textAlignment="viewStart"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView7"
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="374dp"
+        android:layout_height="70dp"
+        app:layout_constraintBottom_toTopOf="@+id/bmb"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.432"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+        app:layout_constraintTop_toBottomOf="@+id/textView10"
+        app:layout_constraintVertical_bias="0.025">
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_marginTop="8dp"
+            android:textAlignment="viewStart" />
+    </android.support.v7.widget.CardView>
 
     <Button
         android:id="@+id/repliesBackButton"
         android:layout_width="51dp"
         android:layout_height="45dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
