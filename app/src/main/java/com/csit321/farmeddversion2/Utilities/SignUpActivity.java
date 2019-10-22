@@ -75,7 +75,7 @@ public class SignUpActivity extends Activity {
             }
         });
     }
-
+    //Takes inputs from the activity and checks if they are valid. If they are it sends the details to the api and receives a response notifying the user.
     private void createAccount() {
         errorView.setVisibility(View.GONE);
 

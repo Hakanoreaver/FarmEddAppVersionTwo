@@ -52,6 +52,7 @@ public class MyFarm extends Activity {
         test();
     }
 
+    //This function takes the active users information and puts it in the activities text fields.
     private void test() {
         User u = MainActivity.getUser();
         farmNameView.setText(u.getFarmName());
@@ -69,6 +70,7 @@ public class MyFarm extends Activity {
         aggrozoneView.setText("Aggrozone Score - " + u.getAggrozone());
     }
 
+    //Initialises our text views
     private void setVars() {
         farmNameView = findViewById(R.id.farm_name_view);
         provincesView = findViewById(R.id.provinces_view);
@@ -96,6 +98,8 @@ public class MyFarm extends Activity {
         });
     }
 
+
+    //This changes the activity to the edit information activity
     private void changeViewEditInformation() {
         Intent menuIntent = new Intent(this, ChangeInformationActivity.class);
         menuIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

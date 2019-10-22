@@ -120,6 +120,8 @@ public class ChangeInformationActivity extends Activity {
         aggrozoneView.setText(Integer.toString(u.getAggrozone()));
     }
 
+
+    //Saves any changes made. This saves in the app and in the backend.
     private void save() {
         //Save Code
         User u = MainActivity.getUser();
@@ -207,6 +209,7 @@ public class ChangeInformationActivity extends Activity {
         finish();
     }
 
+    //Cancels any changes made
     private void cancel() {
         Intent intent = new Intent(this, MyFarm.class);
         startActivity(intent);
@@ -214,6 +217,7 @@ public class ChangeInformationActivity extends Activity {
         finish();
     }
 
+    //Takes the user to the previous activity
     private void back() {
         Intent menuIntent = new Intent(this, MyFarm.class);
         this.startActivity(menuIntent);

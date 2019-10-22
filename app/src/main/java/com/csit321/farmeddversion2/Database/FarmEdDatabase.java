@@ -16,7 +16,7 @@ import com.csit321.farmeddversion2.Database.Objects.Pests;
 import com.csit321.farmeddversion2.Database.Objects.PlantTypes;
 import com.csit321.farmeddversion2.Database.Objects.PlantVarieties;
 
-import java.util.concurrent.Executors;
+//This is a class that initializes our room database.
 
 @Database(entities = {Pests.class, PlantVarieties.class, PlantTypes.class, Diseases.class}, version = 10)
 public abstract class FarmEdDatabase extends RoomDatabase {

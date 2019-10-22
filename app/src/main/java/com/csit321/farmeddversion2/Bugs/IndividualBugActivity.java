@@ -51,6 +51,7 @@ public class IndividualBugActivity extends Activity {
 
         Intent intent = getIntent();
 
+        //Checks whether the id given was for a bug or disease and then displays information in the Text Views.
         if(intent.getBooleanExtra("bug", true)) {
             Pests p = MainActivity.getDatabase().pestsDAO().findById(intent.getIntExtra("id", 0));
             name.setText(p.getPestName());

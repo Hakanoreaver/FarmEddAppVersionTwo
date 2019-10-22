@@ -36,12 +36,6 @@
         <activity
             android:name=".Messaging.MessagingActivity"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".Messaging.MessagingTerminalActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".Plants.PlantsAdvancedSearchActivity"
-            android:screenOrientation="portrait" />
         <activity android:name=".Bugs.BugsActivity" />
         <activity
             android:name=".Plants.IndividualPlantActivity"

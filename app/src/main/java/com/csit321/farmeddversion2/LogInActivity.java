@@ -106,7 +106,7 @@ public class LogInActivity extends Activity {
             sharedPref.edit().commit();
         }
     }
-
+    //Takes user details and sends an api request to see if they match details in the back end.
     public void checkLogIn() throws ParseException {
         SharedPreferences sharedPref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         String dateString = sharedPref.getString("date", "01/01/0001");
@@ -142,6 +142,7 @@ public class LogInActivity extends Activity {
         }
 
     }
+    //Logs in a user
     public void login() {
         Log.d(TAG, "Login");
 
@@ -184,6 +185,7 @@ public class LogInActivity extends Activity {
         moveTaskToBack(true);
     }
 
+    //Sends the log in api request adn receives a response
     public void logIn(String username, String password) {
 
 
@@ -254,6 +256,7 @@ public class LogInActivity extends Activity {
         }
     }
 
+    //Gets a user from the api by userId
     private void getUser(int userId) {
         try {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -293,6 +296,7 @@ public class LogInActivity extends Activity {
 
     }
 
+    //Opens the MainActivity
     public void openMainPage(){
         Intent intent = new Intent(this, MainActivity.class);
         intent.putExtra("offline", false);
@@ -300,6 +304,7 @@ public class LogInActivity extends Activity {
         finish();
     }
 
+    //Opens the MainActivity in offline mode
     public void openMainPageOffline(String username){
         User u = new User();
         u.setUserName(username);
@@ -310,6 +315,7 @@ public class LogInActivity extends Activity {
         finish();
     }
 
+    //Checks if the phone has an internet connection
     private boolean isNetworkAvailable() {
         ConnectivityManager connectivityManager
                 = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);

@@ -50,6 +50,7 @@ public class BugsActivity extends Activity {
         });
     }
 
+    //Sets up the diseases and bugs from the database
     private void setUpItems() {
        List<Diseases> diseases = MainActivity.getDatabase().diseasesDAO().getAll();
        List<Pests> pests = MainActivity.getDatabase().pestsDAO().getAll();

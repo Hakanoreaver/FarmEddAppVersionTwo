@@ -66,7 +66,7 @@ public class PlantsActivity extends Activity {
     }
 
 
-
+    //This function loads all plants and plant types from the database and puts them into the dropdown menu system.
     private void setUpItems() {
         User u = MainActivity.getUser();
         List<PlantTypes> plants = MainActivity.getDatabase().plantTypesDAO().getAll();
@@ -82,6 +82,7 @@ public class PlantsActivity extends Activity {
                 ((TextView) subItemZero.findViewById(R.id.sub_title)).setText(pvs.get(i).getVarietyName());
                 subItemZero.setId(pvs.get(i).getId());
                 SharedPreferences sharedPref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                //If show plant colours setting is activated
                 if(sharedPref.getBoolean("plantsOn", true)) {
                     if (pvs.get(i).getPhMin() < u.getpH() && pvs.get(i).getPhMax() > u.getpH()) {
                         subItemZero.setBackgroundColor(getResources().getColor(R.color.good));

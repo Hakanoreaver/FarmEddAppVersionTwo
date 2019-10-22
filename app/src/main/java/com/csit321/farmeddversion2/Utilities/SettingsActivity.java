@@ -73,6 +73,7 @@ public class SettingsActivity extends Activity {
         });
     }
 
+    //Swaps the plantsOn boolean.
     private void switchPlants() {
         SharedPreferences sharedPref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
@@ -80,6 +81,7 @@ public class SettingsActivity extends Activity {
         editor.commit();
     }
 
+    //Logs out the current user
     private void logOut() {
         SharedPreferences sharedPref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();

@@ -124,6 +124,8 @@ public class MessagingActivity extends Activity {
         });
     }
 
+
+    //This function takes and checks the data from al the inputs and then sends it to the api.
     public void submitQuestion() {
         String n = nTxt.getText().toString();
         if (n.equals("") || n == null) {
@@ -267,12 +269,6 @@ public class MessagingActivity extends Activity {
                 System.out.println(e.toString());
             }
 
-/**
- String userpass = "username:password";
- String basicAuth = "Basic " + android.utils.Base64.decode(userpass.getBytes("UTF-8"), android.utils.Base64.DEFAULT );
- conn.setRequestProperty ("Authorizaton", userpass);
- **/
-
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -300,61 +296,5 @@ public class MessagingActivity extends Activity {
             }
         }
     }
-
-
-
-    public static void setUserID(int id) {
-        userID = id;
-    }
-
-    public static int getUserID() {
-        return userID;
-    }
-
-    public void setLanguage() {
-        String text = "";
-
-        try {
-            File file = getFileStreamPath("language.txt");
-            if (!file.exists()) {
-                file.createNewFile();
-                FileOutputStream writer = openFileOutput(file.getName(), Context.MODE_PRIVATE);
-
-                String string = "en";
-                writer.write(string.getBytes());
-                writer.flush();
-
-
-                writer.close();
-            }
-            else {
-                try {
-                    BufferedReader br = new BufferedReader(new FileReader(file));
-                    String line;
-                    while ((line = br.readLine()) != null) {
-                        text += line;
-                    }
-                    br.close();
-                }
-                catch (IOException e) {
-
-                }
-            }
-
-
-        }
-
-        catch (Exception e) {
-
-        }
-        String lang = text;
-        Locale locale = new Locale(lang);
-        Locale.setDefault(locale);
-        Configuration config = new Configuration();
-        config.locale = locale;
-        getBaseContext().getResources().updateConfiguration(config,
-                getBaseContext().getResources().getDisplayMetrics());
-    }
-
 
 }

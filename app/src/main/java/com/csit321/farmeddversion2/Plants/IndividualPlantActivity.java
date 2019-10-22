@@ -68,6 +68,8 @@ public class IndividualPlantActivity extends Activity {
         bmb = findViewById(R.id.bmb);
         bmb = utils.createBMBMenu(bmb);
 
+
+        //Gets the id of the selected plant and sets its information int the Text Views.
         PlantVarieties pv = MainActivity.getDatabase().plantVarietiesDAO().findById(plantId);
 
         suitableSoilsView.setText(pv.getSuitableSoils());

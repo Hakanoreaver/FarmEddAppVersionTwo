@@ -65,7 +65,7 @@ public class RepliesActivity extends Activity {
         loadReplies();
     }
 
-
+    //This function calls the api and loads replies.
     private void loadReplies() {
         User u = MainActivity.getUser();
         try {

@@ -27,6 +27,7 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class utils {
 
+    //Creates our BoomMenuButton and returns it
     public static BoomMenuButton createBMBMenu(BoomMenuButton bmb) {
         bmb.setNormalColor(R.color.textBlack);
         bmb.setButtonEnum(ButtonEnum.SimpleCircle);
@@ -84,6 +85,7 @@ public class utils {
         return bmb;
     }
 
+    //Creates a URLConnection and returns it
     public static HttpsURLConnection httpFactory(String urlString, String requestType) throws IOException {
         //Set up the connection
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
