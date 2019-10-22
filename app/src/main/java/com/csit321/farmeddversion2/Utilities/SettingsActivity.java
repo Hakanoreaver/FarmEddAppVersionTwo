@@ -25,7 +25,6 @@ public class SettingsActivity extends Activity {
     BoomMenuButton bmb;
     Button backButton;
     Button signOut;
-    Switch animationSwitch;
     Switch plantSwitch;
 
     @Override
@@ -45,15 +44,8 @@ public class SettingsActivity extends Activity {
             }
         });
 
-        animationSwitch = findViewById(R.id.animationSwitch);
         plantSwitch = findViewById(R.id.plantSwitch);
 
-        animationSwitch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                switchAnimations();
-            }
-        });
 
         plantSwitch.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,13 +62,7 @@ public class SettingsActivity extends Activity {
             System.out.println("Here");
             plantSwitch.setChecked(false);
         }
-        if(sharedPref.getBoolean("animationsOn", true)) {
-            animationSwitch.setChecked(true);
-        }
-        else {
-            System.out.println("Here");
-            animationSwitch.setChecked(false);
-        }
+
 
         signOut = findViewById(R.id.logOutButton);
         signOut.setOnClickListener(new View.OnClickListener() {
@@ -85,13 +71,6 @@ public class SettingsActivity extends Activity {
                 logOut();
             }
         });
-    }
-
-    private void switchAnimations() {
-        SharedPreferences sharedPref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putBoolean("animationsOn", !sharedPref.getBoolean("animationsOn", true));
-        editor.commit();
     }
 
     private void switchPlants() {
