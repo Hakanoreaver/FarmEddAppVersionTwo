@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FarmEddVersion2</string>
+    <string name="app_name">FarmEd Agriculture</string>
     <string name="myInformationHeader">My Information</string>
     <string name="farmName">Farm Name</string>
     <string name="nitrogen">Nitrogen</string>
