@@ -219,6 +219,7 @@ public class MessagingActivity extends Activity {
 
                 //Create JSON object
                 JSONObject jsonParam = new JSONObject();
+
                 jsonParam.put("userNum", userID);
                 jsonParam.put("n", n);
                 jsonParam.put("p", p);

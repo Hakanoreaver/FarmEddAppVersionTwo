@@ -54,7 +54,7 @@ public class MainActivity extends Activity {
         createRoomDatabase();
 
         userTextView = findViewById(R.id.userTextView);
-        userTextView.setText(user.getUserName());
+        userTextView.setText("Welcome, " + user.getUserName());
 
 
         myFarm = findViewById(R.id.myFarmButton);
@@ -66,6 +66,7 @@ public class MainActivity extends Activity {
 
         Intent intent = getIntent();
         if(intent.getBooleanExtra("offline", false)) {
+            userTextView.setText("Offline Mode");
             myFarm.setEnabled(false);
             messaging.setEnabled(false);
             replies.setEnabled(false);
