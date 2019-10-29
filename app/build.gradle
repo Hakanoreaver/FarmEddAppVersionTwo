@@ -6,8 +6,13 @@ android {
         applicationId "com.csit321.farmeddversion2"
         minSdkVersion 19
         targetSdkVersion 28
+<<<<<<< HEAD
         versionCode 2
         versionName "1.0"
+=======
+        versionCode 3
+        versionName "1.2"
+>>>>>>> 1f591e6da3e3e33d0a15735e83b6a5553dc62f16
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
